@@ -2,568 +2,417 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Pre-Order for Fansign</title>
-  <meta name="viewport" content="width=1200">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <title>Pre-Order for Fansign | GMMTV SHOP</title>
+  <meta name="viewport" content="width=1024">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Prompt', sans-serif;
-      background: #fafcff;
-      margin: 0;
+      font-family: 'Kanit', Arial, sans-serif;
+      background: #f5f7fa;
       color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 36px auto;
+      background: #fff;
+      border-radius: 18px;
+      padding: 30px 50px 40px 50px;
+      box-shadow: 0 3px 16px #e2e2e2;
     }
     h1 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
+      color: #222;
       text-align: center;
-      margin: 24px 0 4px 0;
+      margin-top: 0;
     }
-    .warn {
-      background: #ffeaea;
-      color: #d52b1e;
-      padding: 18px;
-      font-size: 1.25rem;
+    .alert {
+      background: #fff2f2;
+      color: #d42323;
+      padding: 18px 0 6px 0;
       text-align: center;
-      border-radius: 16px;
-      margin: 0 auto 16px auto;
-      max-width: 600px;
+      font-size: 1.3rem;
       font-weight: bold;
-      border-left: 8px solid #f00;
+      border-radius: 18px;
+      margin-bottom: 20px;
     }
-    .subwarn {
+    .desc {
       text-align: center;
-      margin-top: 10px;
-      margin-bottom: 0;
-      font-size: 1.02rem;
-      color: #d52b1e;
+      color: #f00;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      margin-top: -16px;
+      font-weight: bold;
     }
-    .main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px 48px 24px;
-      background: #fff;
-      border-radius: 20px;
-      min-height: 96vh;
-      box-shadow: 0 10px 32px #0001;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 24px;
+      justify-content: flex-start;
+      margin-bottom: 34px;
     }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      margin: 32px 0 16px 0;
-    }
-    .product-card {
-      background: #f8fafd;
-      border-radius: 20px;
-      box-shadow: 0 2px 12px #ddd3;
-      padding: 20px 14px 16px 14px;
-      text-align: center;
-      transition: 0.18s;
-      position: relative;
+    .card {
+      background: #f7f8fa;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px #d8d8d8;
+      padding: 18px 10px 20px 10px;
+      width: 220px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 4px;
     }
-    .product-card:hover {
-      box-shadow: 0 6px 24px #cbe6ff33;
-      background: #eef7ff;
-      transform: translateY(-2px) scale(1.025);
-    }
-    .product-img {
+    .card img {
+      border-radius: 8px;
       width: 200px;
       height: 300px;
       object-fit: cover;
-      margin-bottom: 12px;
-      border-radius: 12px;
-      background: #eaeaea;
-      box-shadow: 0 1px 6px #0001;
-      border: 1px solid #e3e3e3;
-    }
-    .product-name {
-      font-size: 1.07rem;
       margin-bottom: 8px;
+      box-shadow: 0 2px 10px #ececec;
+    }
+    .card .name {
+      font-size: 1.1rem;
       font-weight: 600;
+      text-align: center;
+      margin: 4px 0 3px 0;
+      color: #262626;
       min-height: 42px;
-      color: #194072;
     }
-    .product-price {
-      font-size: 1.15rem;
-      color: #f6921e;
-      margin-bottom: 10px;
+    .card .price {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fa6400;
+      margin-bottom: 8px;
+      margin-top: 1px;
+    }
+    .card select, .card input[type='number'] {
+      margin-bottom: 7px;
+      width: 95%;
+      border-radius: 7px;
+      border: 1px solid #dedede;
+      padding: 5px 7px;
+      font-size: 1rem;
+    }
+    .card button {
+      background: #0aa85a;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 16px;
+      font-size: 1rem;
       font-weight: 600;
-    }
-    .product-option {
-      width: 90%;
-      margin-bottom: 10px;
-      padding: 7px 8px;
-      border: 1.1px solid #aaa;
-      border-radius: 9px;
-      font-size: 1rem;
-    }
-    .add-btn, .remove-btn {
-      padding: 8px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 12px;
-      border: none;
-      margin: 4px 4px 0 0;
       cursor: pointer;
-      transition: 0.15s;
-      background: #26b060;
-      color: #fff;
-      box-shadow: 0 1px 6px #0001;
-      letter-spacing: 0.03em;
+      transition: background 0.15s;
+      margin-top: 5px;
     }
-    .add-btn:disabled {
-      background: #c4c4c4;
+    .card button:disabled {
+      background: #ccc;
       cursor: not-allowed;
-      color: #fff;
     }
-    .remove-btn {
-      background: #ff4d4f;
-      color: #fff;
-      padding: 8px 14px;
+    .cart {
+      background: #fff8ec;
+      border-radius: 18px;
+      padding: 22px 24px 16px 24px;
+      margin-bottom: 25px;
+      border: 1.2px solid #fae0c0;
+      box-shadow: 0 2px 8px #f7d5b0;
     }
-    .qty-btn {
-      background: #ddd;
-      color: #194072;
-      border: none;
-      font-size: 1.12rem;
+    .cart-title {
+      font-size: 1.18rem;
       font-weight: bold;
-      padding: 5px 12px;
-      border-radius: 8px;
-      margin: 0 2px;
-      vertical-align: middle;
-      cursor: pointer;
-    }
-    .cart-summary {
-      margin: 32px auto 12px auto;
-      background: #fff6e4;
-      padding: 22px 30px 24px 30px;
-      border-radius: 20px;
-      max-width: 580px;
-      box-shadow: 0 3px 16px #0001;
-      text-align: left;
-      border-left: 6px solid #ffa500;
-    }
-    .cart-summary h2 {
-      margin-top: 0;
-      color: #d05b00;
-      font-size: 1.3rem;
-      font-weight: 700;
+      color: #d18800;
+      margin-bottom: 15px;
     }
     .cart-list {
-      padding: 0 0 0 20px;
-      margin: 0 0 10px 0;
-      font-size: 1.09rem;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
     }
     .cart-list li {
-      margin-bottom: 2px;
-      line-height: 1.7;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .cart-controls {
-      display: inline-block;
-      margin-left: 6px;
+    .cart-actions {
+      display: flex;
+      gap: 7px;
     }
-    .cart-total {
+    .cart-actions button {
+      background: #ed2222;
+      border: none;
+      color: #fff;
+      padding: 1px 9px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      margin-left: 5px;
+    }
+    .total {
+      font-size: 1.25rem;
+      font-weight: bold;
       text-align: right;
-      color: #e03e18;
-      font-size: 1.17rem;
-      font-weight: 700;
-      margin-top: 2px;
+      color: #009f3b;
+      margin-bottom: 10px;
     }
-    .pay-section {
-      margin: 30px auto 10px auto;
-      background: #e8faef;
-      border-radius: 18px;
-      padding: 22px 14px;
-      max-width: 640px;
-      text-align: center;
-      border-top: 3px solid #1aae3d;
-    }
-    .ppay-label {
-      color: #198e38;
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin: 0 0 5px 0;
-    }
-    .ppay-box {
-      font-size: 1.21rem;
-      font-weight: bold;
-      color: #007222;
-      margin: 0 0 5px 0;
-    }
-    .ppay-copy {
-      background: #ffcb8b;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      color: #6d3200;
-      padding: 2px 13px;
-      font-weight: 500;
-      margin-left: 4px;
-      cursor: pointer;
-    }
-    .copied {
-      color: #35b763;
-      font-size: 0.97rem;
-      margin-left: 4px;
-      display: none;
-    }
-    .subwarn2 {
-      color: #d52b1e;
-      text-align: center;
-      font-size: 1.18rem;
-      font-weight: bold;
-      margin-top: 34px;
-      background: #fff3f3;
-      border-radius: 13px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px 8px 8px 8px;
-      border-left: 6px solid #ff3838;
-    }
-    .after-pay-block {
-      max-width: 680px;
-      margin: 28px auto 10px auto;
-      background: #e9edfc;
+    .confirm-section {
+      background: #e7fff4;
       border-radius: 16px;
-      padding: 20px 16px;
+      padding: 19px 30px;
       text-align: center;
-      border-top: 3px solid #2265c3;
-      box-shadow: 0 2px 8px #5d94e321;
+      margin-bottom: 24px;
+      font-size: 1.13rem;
     }
-    .copy-btn {
-      background: #ff9a7a;
-      border: none;
+    .confirm-section .copy-btn {
+      margin-left: 10px;
+      background: #ff9000;
       color: #fff;
-      font-weight: 600;
-      border-radius: 8px;
-      font-size: 1rem;
-      margin-top: 10px;
-      padding: 8px 28px;
+      border: none;
+      border-radius: 7px;
+      padding: 4px 13px;
       cursor: pointer;
-      transition: 0.14s;
+      font-size: 1rem;
     }
-    .copy-btn:hover {
-      background: #ee7a4b;
+    .red-btn {
+      background: #e33434 !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      padding: 9px 20px !important;
+      font-size: 1.13rem !important;
+      border: none !important;
+      margin-bottom: 10px !important;
+      margin-top: 5px;
+      cursor: pointer;
+      transition: background 0.17s;
+      box-shadow: 0 1px 5px #f3b6b6;
     }
-    .form-link {
-      display: inline-block;
-      background: #ec2e2e;
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 24px;
-      text-decoration: none;
-      font-size: 1.08rem;
-      font-weight: bold;
-      margin: 12px 0 0 0;
-      transition: 0.16s;
-      letter-spacing: 0.01em;
-      border: none;
+    .order-copy {
+      margin: 0 auto 10px auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 10px;
+      background: #f7f9fc;
+      border-radius: 12px;
+      padding: 15px 18px 10px 18px;
+      width: fit-content;
+      box-shadow: 0 1px 7px #e0e7ef;
     }
-    .form-link:hover {
-      background: #b90b1b;
-      color: #fff;
-      transform: scale(1.07);
-    }
-    .order-copy-box {
-      width: 92%;
-      min-height: 65px;
-      border-radius: 10px;
-      border: 1.4px solid #d6d6d6;
-      margin-top: 10px;
-      padding: 7px 12px;
+    textarea.order-detail {
+      font-family: 'Kanit', Arial, sans-serif;
       font-size: 1.03rem;
-      background: #f7f7f7;
-      font-family: 'Prompt', sans-serif;
+      background: #fff;
+      border-radius: 9px;
+      border: 1.1px solid #ececec;
+      width: 360px;
+      min-height: 70px;
       resize: none;
-      text-align: left;
-      box-sizing: border-box;
+      padding: 10px 9px;
+      color: #3b3b3b;
     }
-    @media (max-width: 1020px) {
-      .main { max-width: 98vw; }
-      .product-grid { grid-template-columns: repeat(2, 1fr);}
+    .order-copy .copy-btn {
+      height: 43px;
+      margin-top: 1px;
     }
-    @media (max-width: 700px) {
-      .main { max-width: 100vw; padding: 0 4px;}
-      .product-grid { grid-template-columns: 1fr; }
-      .product-img { width: 90vw; height: auto; }
+    @media (max-width: 1050px) {
+      .container { padding: 12px; }
+      .products { gap: 16px 7px; }
+      .card { width: 96vw; }
+      .order-copy { width: 92vw; }
     }
   </style>
 </head>
 <body>
-  <div class="main">
-    <div class="warn">
-      * Order ทั้งหมดลด 30%<br>
-      <span style="color:#d52b1e; font-size:1.13em; font-weight:bold;">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</span>
-    </div>
+  <div class="container">
+    <div class="alert">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
+    <div class="desc">* ทุกออเดอร์ลด 30% ทันที!</div>
     <h1>Pre-Order for Fansign</h1>
-    <div id="productList" class="product-grid"></div>
-    <div id="orderSummaryBlock" style="display:none;">
-      <div class="cart-summary">
-        <h2>สรุปรายการสั่งซื้อ</h2>
-        <ul class="cart-list" id="orderList"></ul>
-        <div class="cart-total" id="orderTotal"></div>
-      </div>
+    <div class="products" id="products"></div>
+    
+    <div class="cart" id="cart" style="display:none;">
+      <div class="cart-title">สรุปรายการสั่งซื้อ</div>
+      <ul class="cart-list" id="cart-list"></ul>
+      <div class="total" id="total"></div>
     </div>
-    <div id="paymentSection" style="display:none;">
-      <div class="pay-section">
-        <div class="ppay-label">พร้อมเพย์: <span class="ppay-box" id="ppayNum">0917567358</span>
-          <button class="ppay-copy" onclick="copyPromptpay()">Copy</button>
-          <span class="copied" id="copyPPok">คัดลอกแล้ว!</span>
-        </div>
-        <div style="font-size:1.16rem; font-weight:bold; color:#218e56;">
-          Kanyarat Nuchanart<br>
-          <span id="payAmount"></span>
-        </div>
+    
+    <div class="confirm-section" id="confirmSection" style="display:none;">
+      <div style="color:#13895b;font-weight:bold;">
+        พร้อมเพย์: <span id="ppay" style="font-size:1.19rem;">0917567358</span>
+        <button class="copy-btn" onclick="copyPromptpay()">Copy</button><br>
+        Kanyarat Nuchanart
       </div>
-      <div class="subwarn2">
-        👉 เมื่อโอนแล้ว <a href="https://forms.gle/rs8wSC7psGdwheE39" target="_blank" class="form-link">กรอกฟอร์มยืนยันโอนเงินที่นี่</a>
-        <br><span style="font-size:0.97rem; color:#666; font-weight:normal">(Copy รายการสั่งซื้อด้านล่างไปกรอกในฟอร์มได้เลย)</span>
+      <div style="color:#ea2424;font-size:1.23rem;margin:12px 0 7px 0;font-weight:bold;">
+        สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์
       </div>
-      <div class="after-pay-block">
-        <textarea id="orderCopy" class="order-copy-box" readonly></textarea>
-        <br>
-        <button class="copy-btn" onclick="copyOrderText()">Copy รายการ</button>
-        <span class="copied" id="copyOk">คัดลอกแล้ว!</span>
+      <a href="https://forms.gle/rs8wSC7psGdwheE39" target="_blank" class="red-btn">กรอกฟอร์มยืนยันโอนเงินที่นี่</a>
+      <div class="order-copy">
+        <textarea class="order-detail" id="orderDetail" readonly></textarea>
+        <button class="copy-btn" onclick="copyOrder()">Copy รายการ</button>
       </div>
     </div>
   </div>
-<script>
-// --- ตั้งค่าและข้อมูลสินค้า ---
-const products = [
-  {
-    name: "That Summer Novel",
-    price: 315,
-    image: "images/that_summer.jpg"
-  },
-  {
-    name: "Burnout Syndrome Novel",
-    price: 315,
-    image: "images/burnout.jpg"
-  },
-  {
-    name: "Last Twilight Novel",
-    price: 315,
-    image: "images/last_twilight.jpg"
-  },
-  {
-    name: "Thamepo Heart Novel",
-    price: 343,
-    image: "images/thamepo.jpg"
-  },
-  {
-    name: "Ceri Doll Keychain",
-    price: 553,
-    image: "images/ceri_doll_keychain.jpg"
-  },
-  {
-    name: "Nilkhnake Doll Keychain",
-    price: 553,
-    image: "images/nilkhnake_doll_keychain.jpg"
-  },
-  {
-    name: "Collectible Card Set",
-    price: 210,
-    image: "images/collectible_card_set.jpg",
-    option: "cardset"
-  },
-  {
-    name: "Customizable Acrylic Keychain",
-    price: 245,
-    image: "images/acrylic_keychai.jpg",
-    option: "acrylic"
-  },
-  {
-    name: "Fandom Phone Grippy (Random)",
-    price: 290,
-    image: "images/phone_grippy.jpg",
-    option: "grippy"
-  },
-  {
-    name: "Magsafe Wallet Stand",
-    price: 343,
-    image: "images/magsafe_wallet.jpg",
-    option: "magsafe"
-  },
-  {
-    name: "Sticker Set",
-    price: 155,
-    image: "images/sticker_set.jpg",
-    option: "sticker"
-  },
-  {
-    name: "Hair Band",
-    price: 343,
-    image: "images/hair_band.jpg",
-    option: "hairband"
-  },
-  {
-    name: "Huggy Bag",
-    price: 415,
-    image: "images/huggy_bag.jpg",
-    option: "huggy"
-  },
-  {
-    name: "Collectible Card Album",
-    price: 210,
-    image: "images/card_album.jpg",
-    option: "album"
-  },
-  {
-    name: "Sticky Fabric",
-    price: 205,
-    image: "images/sticky_fabric.jpg",
-    option: "sticky"
-  },
-  {
-    name: "Clear Pouch",
-    price: 245,
-    image: "images/clear_pouch.jpg",
-    option: "pouch"
-  },
-  {
-    name: "Charm Illusion Tote Bag",
-    price: 625,
-    image: "images/charm_illusion_tote.jpg"
-  },
-  {
-    name: "Patchy Illusion Tote Bag",
-    price: 625,
-    image: "images/patchy_illusion_tote.jpg"
-  }
-];
+  <script>
+    // --- Full Artists List ---
+    const gmmtvArtists = [
+      "Krist Perawat","Singto Prachaya","Off Jumpol","Gun Atthaphan","Tay Tawan","New Thitipoom","Earth Pirapat","Mix Sahaphap","Book Kasidet","Force Jiratchapong","Joong Archen","Dunk Natachai","Gemini Norawit","Fourth Nattawat","Winny Thanawin","Satang Kittiphop","Pond Naravit","Phuwin Tangsakyuen","Jimmy Jitaraphol","Sea Tawinan","Louis Thanawin","Mark Pakin","Mike Chinnarat","Aou Thanaboon","Boom Tham","Pepper Phanuroj","Fluke Pusit","Noon Siritorn","Euro Yotsawat","Prame Pumipat","Poom Patadon","Boss Chaikamon",
+      "Mook Worranit","View Benyapa","June Wanwimol","Fah Yongwaree","Prim Chanikarn","Namtan Tipnaree","Aye Sarunchana","Mook Monchanok","Ciize Apichaya","Foei Patara","Love Pattranite","Film Rachanun","Earn Preeyaphat","Piploy Kanyarat","Aom Sushar","Pim Pimprapa","Benz Natthida","Pimnitcha","Ticha Wongthipkanon",
+      "KristSingto","OffGun","TayNew","EarthMix","BookForce","JoongDunk","GeminiFourth","WinnySatang","PondPhuwin","JimmySea",
+      "FahPrim","LoveFilm","NamtanFilm","JuneView","AyeCiize","EarnPiploy","MookMook",
+      "KristMook","WinnyPrim","GeminiPrim","GunFah","OffNamtan","TayCiize","EarthPim","MixLove","BookFilm","ForceAye",
+      "Sizzy","LYKN","KAZZ Magazine","TRINITY","Girl Next Door","The Gifted","Safe House","Friend Zone"
+    ];
 
-// ตัวเลือกศิลปิน (เพิ่มได้ตามรูป)
-const artistOptions = {
-  cardset: ["ALMONDPROGRESS", "VIEWMIM", "JUNEMEWNICH"],
-  acrylic: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  grippy: ["BOX A", "BOX B"],
-  magsafe: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  sticker: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  hairband: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  huggy: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  album: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  sticky: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"],
-  pouch: ["KRISTENEO", "OFFJUMP", "TAYNEW", "EARTHMIX", "BOOKFOROBOY", "FORDKBOOK", "JODNBOOK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH", "WINNYSATANG", "BOOMNOD", "BOSTEN", "PHUPHAWIN", "BOSTON", "WINNY", "NOD", "NODNOD", "JOMJOM", "GUNGUY", "CERI", "MILKLOVE", "NANTAN", "FILM", "BEN", "BONNIE", "VIEW", "MINE", "JUNE", "SUNNY", "ONE", "UNPART", "ANY", "META", "NILKNAKE", "SHYLE", "NOMA", "LYKYOU"]
-};
+    // --- ตัวอย่างสินค้า (แก้/เพิ่ม/ลบได้ตามรูป) ---
+    const products = [
+      { id: 1, name: "That Summer Novel", price: 315, image: "images/that_summer.jpg" },
+      { id: 2, name: "Burnout Syndrome Novel", price: 315, image: "images/burnout.jpg" },
+      { id: 3, name: "Last Twilight Novel", price: 315, image: "images/last_twilight.jpg" },
+      { id: 4, name: "Thamepo Heart Novel", price: 345, image: "images/thamepo.jpg" },
+      { id: 5, name: "Ceri Doll Keychain", price: 555, image: "images/ceri_doll_keychain.jpg" },
+      { id: 6, name: "Nilkhnake Doll Keychain", price: 555, image: "images/nilkhnake_doll_keychain.jpg" },
+      { id: 7, name: "Collectible Card Set", price: 210, image: "images/collectible_card_set.jpg", artists: ["ALMONDPROGRESS", "VIEWMIM", "JUNEMEWNICH"] },
+      { id: 8, name: "Customizable Acrylic Keychain", price: 245, image: "images/acrylic_keychain.jpg", artists: gmmtvArtists },
+      { id: 9, name: "Fandom Phone Grippy (Random)", price: 203, image: "images/phone_grippy.jpg", grippyBox: ["A", "B"], artists: [
+        // รวมชื่อทั้งหมด (ตัวอย่าง, ใส่ชื่อตาม box A/B ได้)
+        "Babi","Pokchan","Paddy","Tomayok","Jadee","Avocani","Samuray","Domia","Jjamo","Gunzy","Ceri","Mavvy","Lunai","Any",
+        "King Man","Mr. Saturnworld","Pernpoon","Yuzu Mumu","Look Khunkoo","Nong Noknok","Angelo","Wesley","Momo","Meta","Nilkhnake","Bayle","Nigma","Lykov"
+      ]},
+      { id: 10, name: "Magsafe Wallet Stand", price: 345, image: "images/magsafe_wallet.jpg", artists: gmmtvArtists },
+      { id: 11, name: "Sticker Set", price: 155, image: "images/sticker_set.jpg", artists: gmmtvArtists },
+      { id: 12, name: "Hair Band", price: 345, image: "images/hair_band.jpg", artists: gmmtvArtists },
+      { id: 13, name: "Huggy Bag", price: 415, image: "images/huggy_bag.jpg", artists: gmmtvArtists },
+      { id: 14, name: "Collectible Card Album", price: 210, image: "images/card_album.jpg", artists: gmmtvArtists },
+      { id: 15, name: "Sticky Fabric", price: 205, image: "images/sticky_fabric.jpg", artists: gmmtvArtists },
+      { id: 16, name: "Clear Pouch", price: 245, image: "images/clear_pouch.jpg", artists: gmmtvArtists },
+      { id: 17, name: "Charm Illusion Tote Bag", price: 625, image: "images/charm_illusion_tote.jpg" },
+      { id: 18, name: "Patchy Illusion Tote Bag", price: 625, image: "images/patchy_illusion_tote.jpg" }
+    ];
 
-let cart = [];
+    // --- DOM Render สินค้า ---
+    const productsDiv = document.getElementById("products");
+    let cart = [];
 
-function renderProducts() {
-  const grid = document.getElementById("productList");
-  grid.innerHTML = "";
-  products.forEach((p, idx) => {
-    let hasOption = !!p.option && artistOptions[p.option];
-    let optHTML = "";
-    if (hasOption) {
-      optHTML = `<select class="product-option" id="opt${idx}">
-      <option value="">เลือกศิลปิน/แบบ</option>
-      ${artistOptions[p.option].map(opt => `<option value="${opt}">${opt}</option>`).join("")}
-      </select>`;
+    function renderProducts() {
+      productsDiv.innerHTML = "";
+      products.forEach((p, idx) => {
+        let artistOpt = "";
+        if (p.artists) {
+          artistOpt = `<select id="artist-${p.id}">
+              <option value="">เลือกศิลปิน/คู่/กลุ่ม</option>
+              ${p.artists.map(a => `<option value="${a}">${a}</option>`).join('')}
+            </select>`;
+        } else if (p.grippyBox) {
+          artistOpt = `
+            <select id="grippyBox-${p.id}" style="margin-bottom:7px;">
+              <option value="">เลือก Box</option>
+              ${p.grippyBox.map(box => `<option value="${box}">Box ${box}</option>`).join('')}
+            </select>
+            <select id="artist-${p.id}">
+              <option value="">เลือกคาแรกเตอร์</option>
+              ${p.artists.map(a => `<option value="${a}">${a}</option>`).join('')}
+            </select>
+          `;
+        }
+        productsDiv.innerHTML += `
+          <div class="card" id="card-${p.id}">
+            <img src="${p.image}" alt="${p.name}">
+            <div class="name">${p.name}</div>
+            <div class="price">${p.price}฿</div>
+            ${artistOpt || ""}
+            <button id="addBtn-${p.id}" onclick="addToCart(${p.id})">+ เพิ่ม</button>
+          </div>
+        `;
+      });
     }
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="${p.image}" class="product-img" alt="${p.name}" width="200" height="300"/>
-        <div class="product-name">${p.name}</div>
-        <div class="product-price">${p.price}฿</div>
-        ${optHTML}
-        <button class="add-btn" onclick="addToCart(${idx})">+ เพิ่ม</button>
-      </div>`;
-  });
-}
 
-function addToCart(idx) {
-  const p = products[idx];
-  let optVal = null;
-  if (p.option && artistOptions[p.option]) {
-    const sel = document.getElementById("opt" + idx);
-    if (!sel.value) { sel.style.borderColor = "red"; return; }
-    optVal = sel.value;
-    sel.style.borderColor = "#aaa";
-  }
-  let itemIdx = cart.findIndex(it => it.idx === idx && (!p.option || it.option === optVal));
-  if (itemIdx > -1) {
-    cart[itemIdx].qty += 1;
-  } else {
-    cart.push({ idx, option: optVal, qty: 1 });
-  }
-  renderCart();
-}
+    function addToCart(id) {
+      const p = products.find(x => x.id === id);
+      let artist = "";
+      let grippyBox = "";
 
-function removeFromCart(i) {
-  cart.splice(i, 1);
-  renderCart();
-}
+      // Check for artist selection if exists
+      if (p.artists) {
+        const sel = document.getElementById("artist-"+p.id);
+        if (sel && !sel.value) return alert("กรุณาเลือกศิลปิน/คู่/กลุ่ม");
+        artist = sel ? sel.value : "";
+      }
+      if (p.grippyBox) {
+        const selBox = document.getElementById("grippyBox-"+p.id);
+        if (selBox && !selBox.value) return alert("เลือก Box ก่อน");
+        grippyBox = selBox ? selBox.value : "";
+        const sel = document.getElementById("artist-"+p.id);
+        if (sel && !sel.value) return alert("เลือกคาแรกเตอร์");
+        artist = sel.value;
+      }
+      // ตรวจสอบซ้ำ
+      const foundIdx = cart.findIndex(item => item.id===id && item.artist===artist && item.grippyBox===grippyBox);
+      if (foundIdx > -1) {
+        cart[foundIdx].qty++;
+      } else {
+        cart.push({ id, name: p.name, price: p.price, qty: 1, artist, grippyBox });
+      }
+      renderCart();
+    }
 
-function changeQty(i, delta) {
-  cart[i].qty += delta;
-  if (cart[i].qty < 1) removeFromCart(i);
-  renderCart();
-}
+    function renderCart() {
+      const cartDiv = document.getElementById("cart");
+      const cartList = document.getElementById("cart-list");
+      const totalDiv = document.getElementById("total");
+      cartDiv.style.display = cart.length ? "block" : "none";
+      if (!cart.length) {
+        document.getElementById("confirmSection").style.display = "none";
+        return;
+      }
+      let total = 0;
+      cartList.innerHTML = "";
+      cart.forEach((item, idx) => {
+        const title = `${item.name}${item.grippyBox ? " (Box "+item.grippyBox+")":""}${item.artist ? " ("+item.artist+")":""}`;
+        cartList.innerHTML += `
+          <li>
+            <span>${title} x ${item.qty} = ${(item.price*item.qty).toLocaleString()} บาท</span>
+            <span class="cart-actions">
+              <button onclick="changeQty(${idx},-1)">-</button>
+              <button onclick="changeQty(${idx},1)">+</button>
+              <button onclick="removeItem(${idx})">&times;</button>
+            </span>
+          </li>
+        `;
+        total += item.price * item.qty;
+      });
+      totalDiv.innerHTML = `รวมทั้งหมด: <span style="color:#d42323;">${total.toLocaleString()}</span> บาท`;
+      // Render confirm section
+      renderConfirmSection(total);
+    }
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx,1);
+      renderCart();
+    }
+    function removeItem(idx) {
+      cart.splice(idx,1);
+      renderCart();
+    }
 
-function renderCart() {
-  const orderBlock = document.getElementById("orderSummaryBlock");
-  const paymentSection = document.getElementById("paymentSection");
-  if (!cart.length) {
-    orderBlock.style.display = "none";
-    paymentSection.style.display = "none";
-    return;
-  }
-  orderBlock.style.display = "";
-  let ol = document.getElementById("orderList");
-  let total = 0;
-  ol.innerHTML = "";
-  cart.forEach((item, i) => {
-    const prod = products[item.idx];
-    total += prod.price * item.qty;
-    ol.innerHTML += `
-      <li>
-        <span>
-          ${prod.name}${item.option ? " (" + item.option + ")" : ""}
-          x ${item.qty} = ${prod.price * item.qty} บาท
-        </span>
-        <span class="cart-controls">
-          <button class="qty-btn" onclick="changeQty(${i},-1)">-</button>
-          <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
-          <button class="remove-btn" onclick="removeFromCart(${i})">ลบ</button>
-        </span>
-      </li>`;
-  });
-  document.getElementById("orderTotal").innerHTML = "รวมทั้งหมด: <b style='font-size:1.13em;color:#e03e18'>" + total + "</b> บาท";
-  // สรุปยอดชำระ/คัดลอกรายการ
-  document.getElementById("payAmount").innerHTML = "ยอดที่ต้องโอน: <b style='color:#218e56'>" + total + " บาท</b>";
-  let txt = cart.map(item => {
-    const prod = products[item.idx];
-    return `${prod.name}${item.option ? " (" + item.option + ")" : ""} x ${item.qty} = ${prod.price * item.qty} บาท`;
-  }).join("\n");
-  txt += "\nรวมทั้งหมด: " + total + " บาท";
-  document.getElementById("orderCopy").value = txt;
-  paymentSection.style.display = "";
-}
+    function renderConfirmSection(total) {
+      const cs = document.getElementById("confirmSection");
+      cs.style.display = "block";
+      document.getElementById("orderDetail").value = cart.map(item =>
+        `${item.name}${item.grippyBox?" (Box "+item.grippyBox+")":""}${item.artist?" ("+item.artist+")":""} x ${item.qty} = ${(item.price*item.qty).toLocaleString()} บาท`
+      ).join('\n') + `\nรวมทั้งหมด: ${total.toLocaleString()} บาท`;
+      document.getElementById("ppay").textContent = "0917567358";
+    }
+    function copyPromptpay() {
+      navigator.clipboard.writeText("0917567358");
+      alert("คัดลอกเบอร์พร้อมเพย์แล้ว!");
+    }
+    function copyOrder() {
+      const txt = document.getElementById("orderDetail").value;
+      navigator.clipboard.writeText(txt);
+      alert("คัดลอกข้อความเรียบร้อย! นำไปวางในฟอร์มยืนยันได้เลย");
+    }
 
-function copyPromptpay() {
-  const num = document.getElementById("ppayNum").textContent.trim();
-  navigator.clipboard.writeText(num);
-  const el = document.getElementById("copyPPok");
-  el.style.display = "";
-  setTimeout(() => el.style.display = "none", 1200);
-}
-
-function copyOrderText() {
-  const txt = document.getElementById("orderCopy").value;
-  navigator.clipboard.writeText(txt);
-  const el = document.getElementById("copyOk");
-  el.style.display = "";
-  setTimeout(() => el.style.display = "none", 1200);
-}
-
-// Run
-renderProducts();
-</script>
+    renderProducts();
+  </script>
 </body>
 </html>
