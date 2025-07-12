@@ -104,7 +104,7 @@ const boxOptions = ["BOX A", "BOX B"];
 // ราคาเต็ม → ราคาหลังลด 30%
 function sale(p) { return Math.round(p * 0.7); }
 
-// เรียงตามโปสเตอร์ (ตัวอย่าง อาจเปลี่ยนได้ตามโปสเตอร์จริง)
+// เรียงตามโปสเตอร์
 const PRODUCTS = [
   // 1. Sticker Set
   {id: "sticker_set", title: "Sticker Set", price: sale(220), image: "images/sticker_set.jpg", select: mascotsGMMTV},
@@ -122,8 +122,8 @@ const PRODUCTS = [
   {id: "patchy_illusion_tote", title: "Fandom Character Patchy Illusion Tote Bag", price: sale(890), image: "images/patchy_illusion_tote.jpg", select: mascotsGMMTV},
   // 8. Fandom Phone Grippy (Random)
   {id: "phone_grippy", title: "Fandom Phone Grippy (Random)", price: sale(290), image: "images/phone_grippy.jpg", select: boxOptions},
-  // 9. Customizable Acrylic Keychain
-  {id: "acrylic_keychain", title: "Customizable Acrylic Keychain", price: sale(350), image: "images/acrylic_keychain.jpg", select: coupleNames},
+  // 9. Customizable Acrylic Keychain *** ชื่อไฟล์เปลี่ยนเป็น acrylic_keychai.jpg ***
+  {id: "acrylic_keychain", title: "Customizable Acrylic Keychain", price: sale(350), image: "images/acrylic_keychai.jpg", select: coupleNames},
   // 10. Collectible Card Album
   {id: "collectible_card_album", title: "Collectible Card Album", price: sale(300), image: "images/card_album.jpg", select: coupleNames},
   // 11. That Summer (นิยาย)
