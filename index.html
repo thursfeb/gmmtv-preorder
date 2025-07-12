@@ -282,33 +282,37 @@
       <div id="orderSummaryBlock"></div>
       <button class="btn-main" onclick="showPay()">ดำเนินการชำระเงิน</button>
     </div>
+
     <div id="paymentSection" style="display:none;">
       <div class="order-summary-block" id="orderSummaryPay"></div>
-      <img src="images/QRPP.png" id="qrcode" alt="QR พร้อมเพย์">
-      <div class="pay-detail">
+
+      <div class="pay-detail" style="background:#e5f9ee;">
         พร้อมเพย์: <span id="promptpay" style="font-size:1.19rem;color:#0c5396;font-weight:700;">0917567358</span>
         <button class="copy-btn" onclick="copyPromptpay()">Copy</button>
         <br>Kanyarat Nuchanart <br>
         ยอดที่ต้องโอน: <span id="totalPay">0</span> บาท
         <span id="copyPPok" style="color:#198b37;font-weight:500;font-size:.98rem;display:none;margin-left:7px;">คัดลอกแล้ว!</span>
       </div>
+
       <div class="warn-nocoupon" style="margin-top:.5rem;">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
-      <div class="form-link-block">
+      <div class="form-link-block" style="background:#eef1fd;">
         <div style="font-weight:600;margin-bottom:8px;">
-          👉 เมื่อโอนแล้ว <span style="color:#e53935">คลิกกรอกฟอร์มยืนยันโอนเงินที่นี่</span>
+          👉 เมื่อโอนแล้ว 
+          <a href="https://forms.gle/rs8wSC7psGdwheE39" 
+             target="_blank"
+             style="background:#e53935;color:white;padding:.5rem 1.2rem;font-weight:700;
+             border-radius:1.2rem;text-decoration:none;box-shadow:0 2px 8px #f5bcbc77;display:inline-block;margin-left:4px;">
+             กรอกฟอร์มยืนยันโอนเงินที่นี่
+          </a>
         </div>
-        <a href="https://forms.gle/rs8wSC7psGdwheE39" target="_blank">
-          กรอกฟอร์มแจ้งโอนเงิน
-        </a>
-        <br>
+        <div style="font-size:1.13rem;color:#226; font-weight:700; margin:.6rem 0 .5rem">กรอกฟอร์มแจ้งโอนเงิน</div>
         <div style="margin:1rem 0 .6rem;">(Copy รายการสั่งซื้อด้านล่างไปกรอกในฟอร์มได้เลย)</div>
         <textarea id="orderCopy" class="order-textarea" readonly></textarea><br>
         <button class="copy-btn" onclick="copyOrderText()">Copy รายการ</button>
         <span id="copyOk" style="color:#198b37;font-weight:500;font-size:.98rem;display:none;margin-left:7px;">คัดลอกแล้ว!</span>
       </div>
     </div>
-  </div>
-  <script>
+
     // ----- รายการสินค้า (ไม่มี Fandom Phone Grippy Random, ขนาดรูป 200x300) -----
     const products = [
       {name: "That Summer Novel", price: 315, image: "that_summer.jpg"},
