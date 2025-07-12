@@ -14,7 +14,7 @@
     .products { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px;}
     .product-card { background: #f5f8fb; border-radius: 14px; padding: 18px 12px; text-align: center; box-shadow: 0 2px 8px #e8e8e8;}
     .product-card img { width: 180px; height: 270px; object-fit: cover; border-radius: 12px; border: 1.5px solid #f2e4f6;}
-    .prod-title { font-weight: bold; margin-top: 9px; font-size: 1.09rem;}
+    .prod-title { font-weight: bold; margin-top: 9px; font-size: 1.28rem;}
     .prod-price { color: #e7672f; font-weight: bold; font-size: 1.18rem;}
     select, input[type='number'] { padding: 7px 10px; border-radius: 7px; border: 1.5px solid #e4e4e4; font-size: 1rem; margin-top:8px;}
     .btn-add { background: #18b951; color: #fff; border: none; padding: 7px 14px; border-radius: 8px; margin: 12px 0 0 0; cursor: pointer; font-weight: bold;}
@@ -27,10 +27,10 @@
     .cart-item select, .cart-item input { margin: 0 8px;}
     .cart-sum { color: #e12d2d; font-size: 1.18rem; font-weight: bold; text-align:right;}
     .btn-copy { background: #ffd797; color: #8d5a00; border: none; padding: 6px 14px; border-radius: 7px; font-weight: bold; margin-left: 10px; cursor: pointer;}
-    .pay-section { margin-top: 36px; background: #eaffea; border-radius: 16px; padding: 14px 10px; text-align: center;}
-    .pay-number { color: #178046; font-size: 1.13rem; font-weight: bold;}
-    .pay-name { color: #178046;}
-    .pay-total { color: #067911; font-size: 1.1rem; font-weight: bold;}
+    .pay-section { margin-top: 36px; background: #eaffea; border-radius: 16px; padding: 18px 10px; text-align: center;}
+    .pay-number { color: #178046; font-size: 2.1rem; font-weight: bold; margin-bottom: 6px;}
+    .pay-name { color: #178046; font-size: 1.5rem; font-weight:bold;}
+    .pay-total { color: #067911; font-size: 1.22rem; font-weight: bold;}
     .form-section { margin-top: 18px; background: #e3eafd; border-radius: 15px; padding: 14px;}
     .form-link-btn { background: #e12d2d; color: #fff; font-weight: bold; border: none; border-radius: 9px; font-size: 1.1rem; padding: 10px 22px; margin: 16px 0 20px 0; cursor: pointer;}
     textarea {width:95%;margin-top:10px;height:80px;background:#fff7ee;border-radius:9px;padding:8px;font-size:1rem;}
@@ -40,6 +40,7 @@
     @media (max-width: 700px){
       .container{padding: 6px;}
       .products{grid-template-columns:1fr;}
+      .pay-number,.pay-name{font-size:1.1rem;}
     }
   </style>
 </head>
@@ -80,6 +81,7 @@
 </div>
 
 <script>
+// Mascots
 const mascotsGMMTV = [
   "KINGMAN", "BABII", "POLCASAN", "MR. SATURNWORLD", "PAODY",
   "TOMAFOX", "JAIDEE", "AVOCEAN", "SAMRUAY", "JUMMO", "GUINZLY",
@@ -87,6 +89,7 @@ const mascotsGMMTV = [
   "LUNAR", "ANY", "NILKHNAKE", "SHYLE", "NONGNOOONG", "LYKOU"
 ];
 
+// เฉพาะ “คู่” (BL/GL/Side)
 const coupleNames = [
   "OFFGUN", "TAYNEW", "BRIGHTWIN", "EARTHMIX", "PONDPHUWIN", "OHMNANON",
   "FORCEBOOK", "JOONGDUNK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH",
@@ -101,26 +104,39 @@ const boxOptions = ["BOX A", "BOX B"];
 // ราคาเต็ม → ราคาหลังลด 30%
 function sale(p) { return Math.round(p * 0.7); }
 
+// เรียงตามโปสเตอร์ (ตัวอย่าง อาจเปลี่ยนได้ตามโปสเตอร์จริง)
 const PRODUCTS = [
-  // สินค้ามาสคอต
+  // 1. Sticker Set
   {id: "sticker_set", title: "Sticker Set", price: sale(220), image: "images/sticker_set.jpg", select: mascotsGMMTV},
+  // 2. Hair Band
   {id: "hair_band", title: "Hair Band", price: sale(490), image: "images/hair_band.jpg", select: mascotsGMMTV},
+  // 3. Huggy Bag
   {id: "huggy_bag", title: "Huggy Bag", price: sale(590), image: "images/huggy_bag.jpg", select: mascotsGMMTV},
+  // 4. Sticky Fabric
   {id: "sticky_fabric", title: "Sticky Fabric", price: sale(390), image: "images/sticky_fabric.jpg", select: mascotsGMMTV},
+  // 5. Clear Pouch
   {id: "clear_pouch", title: "Clear Pouch", price: sale(350), image: "images/clear_pouch.jpg", select: mascotsGMMTV},
+  // 6. Fandom Character Charm Illusion Tote Bag
   {id: "charm_illusion_tote", title: "Fandom Character Charm Illusion Tote Bag", price: sale(890), image: "images/charm_illusion_tote.jpg", select: mascotsGMMTV},
+  // 7. Fandom Character Patchy Illusion Tote Bag
   {id: "patchy_illusion_tote", title: "Fandom Character Patchy Illusion Tote Bag", price: sale(890), image: "images/patchy_illusion_tote.jpg", select: mascotsGMMTV},
-  // สินค้าที่เลือก BOX
+  // 8. Fandom Phone Grippy (Random)
   {id: "phone_grippy", title: "Fandom Phone Grippy (Random)", price: sale(290), image: "images/phone_grippy.jpg", select: boxOptions},
-  // สินค้าที่เลือกคู่เท่านั้น (BL/GL/Side)
+  // 9. Customizable Acrylic Keychain
   {id: "acrylic_keychain", title: "Customizable Acrylic Keychain", price: sale(350), image: "images/acrylic_keychain.jpg", select: coupleNames},
+  // 10. Collectible Card Album
   {id: "collectible_card_album", title: "Collectible Card Album", price: sale(300), image: "images/card_album.jpg", select: coupleNames},
-  // สินค้าอื่น
+  // 11. That Summer (นิยาย)
   {id: "that_summer", title: "That Summer (นิยาย)", price: sale(450), image: "images/that_summer.jpg"},
+  // 12. Burnout Syndrome (นิยาย)
   {id: "burnout", title: "Burnout Syndrome (นิยาย)", price: sale(450), image: "images/burnout.jpg"},
+  // 13. Last Twilight (นิยาย)
   {id: "last_twilight", title: "Last Twilight (นิยาย)", price: sale(450), image: "images/last_twilight.jpg"},
+  // 14. Thamepo (Heart That Skips a Beat Novel)
   {id: "thamepo", title: "Thamepo (Heart That Skips a Beat Novel)", price: sale(490), image: "images/thamepo.jpg"},
+  // 15. Ceri Doll Keychain
   {id: "ceri_doll_keychain", title: "Ceri Doll Keychain", price: sale(790), image: "images/ceri_doll_keychain.jpg"},
+  // 16. Nilkhnake Doll Keychain
   {id: "nilkhnake_doll_keychain", title: "Nilkhnake Doll Keychain", price: sale(790), image: "images/nilkhnake_doll_keychain.jpg"},
 ];
 
