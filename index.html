@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>GMMTV SHOP Preorder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: #fafafa;
+      color: #232323;
+      margin: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e7e7e7;
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+      position: sticky; top: 0; z-index:10;
+      box-shadow: 0 2px 8px 0 rgba(80,80,80,0.04);
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #235c48;
+    }
+    header p { color: #555; font-size:1rem; margin:.4em 0 0;}
+    .container {
+      max-width: 520px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 1.8rem;
+      box-shadow: 0 4px 24px 0 #0001;
+      padding: 2.1rem 1.5rem 1.5rem;
+    }
+    h2 { text-align: left; margin-top:0;font-size:1.3rem;letter-spacing:.8px;}
+    .product-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.3rem 1.2rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .product-card {
+      background: #f8f8f8;
+      border-radius: 1rem;
+      box-shadow: 0 1px 6px #0001;
+      padding: .7rem .7rem 1rem;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      transition:.2s;
+      position:relative;
+      min-height: 270px;
+    }
+    .product-card img {
+      max-width: 90px; max-height: 90px;
+      border-radius: .8rem;
+      margin-bottom:.6rem;
+      background: #fff;
+      box-shadow: 0 0 4px #2221;
+      object-fit: cover;
+      border: 1.5px solid #e5e5e5;
+    }
+    .product-card h3 {
+      font-size: 1rem;
+      margin: 0 0 .1rem;
+      font-weight: 600;
+      color: #1d4c34;
+    }
+    .product-card .price {
+      color: #e97100;
+      font-weight: bold;
+      font-size: 1.09rem;
+      margin-bottom: .8rem;
+    }
+    .product-card input[type=number] {
+      width: 52px;
+      font-size: 1rem;
+      border-radius: 7px;
+      border: 1px solid #bbb;
+      padding: 3px 8px;
+      margin-top:.2rem;
+    }
+    .cart-box {
+      background: #f3f6f5;
+      border-radius: 1.3rem;
+      margin: 2rem 0 1.4rem;
+      padding: 1.1rem 1.3rem .7rem;
+      box-shadow: 0 0 12px 0 #0001;
+    }
+    .cart-summary {
+      font-size: 1.05rem;
+      color: #222;
+      margin-bottom: .7rem;
+      line-height:1.9;
+      word-break:break-word;
+    }
+    .btn-main {
+      background: linear-gradient(90deg, #32bfa4, #22744e);
+      color: #fff;
+      font-size: 1.07rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 1.2rem;
+      padding: .7rem 2.1rem;
+      margin: 1.3rem auto .2rem;
+      display: block;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #28ad7366;
+      transition: .15s;
+    }
+    .btn-main:active { filter: brightness(.95);}
+    #paymentSection {
+      padding: 1.2rem 0 .5rem 0;
+    }
+    #qrcode {
+      display: block;
+      margin: 1rem auto .5rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 6px #0002;
+      max-width: 140px;
+    }
+    .pay-detail {
+      text-align: center;
+      color: #176842;
+      font-weight: bold;
+      margin: .6rem 0 1.1rem;
+      font-size: 1.13rem;
+      background: #ebf8ef;
+      border-radius: 0.9rem;
+      padding: .7rem 0 .5rem 0;
+      border:1px solid #c8ecd6;
+    }
+    form label { font-size: .98rem; color: #235c48;}
+    .form-group { margin-bottom: 1.3rem;}
+    input, textarea {
+      width: 100%; padding: 9px;
+      border-radius: 7px; border: 1px solid #b1b1b1;
+      font-size: 1rem; margin-top: 3px;
+      background: #f6f6f8;
+    }
+    textarea { min-height: 60px;}
+    .success {
+      background: #d3fae6;
+      border-radius: 1.1rem;
+      color: #126138;
+      padding: 1.1rem;
+      margin:1.2rem 0 1.6rem;
+      text-align: center;
+      font-size:1.1rem;
+      font-weight:500;
+    }
+    @media (max-width: 700px) {
+      .container { margin:1rem .2rem;padding:.7rem .4rem;}
+      .product-list { grid-template-columns: 1fr;}
+      .product-card { min-height:230px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GMMTV SHOP PREORDER</h1>
+    <p>ลด 30% ทั้งร้าน! (เว้น Collectible Random Card)</p>
+    <p style="font-size:.98rem; color:#789;">Preorder by: <b>thursfeb</b></p>
+  </header>
+  <div class="container">
+    <h2>เลือกสินค้า</h2>
+    <form id="orderForm" onsubmit="return false;">
+      <div class="product-list" id="productList"></div>
+    </form>
+    <div class="cart-box" id="cartBox" style="display:none;">
+      <div class="cart-summary" id="cartSummary"></div>
+      <button class="btn-main" onclick="showPay()">ดำเนินการชำระเงิน</button>
+    </div>
+    <div id="paymentSection" style="display:none;">
+      <h2>ขั้นตอนชำระเงิน</h2>
+      <img src="images/ppqr.png" id="qrcode" alt="QR พร้อมเพย์">
+      <div class="pay-detail">
+        พร้อมเพย์: <b>0917567358</b> <br>
+        Kanyarat Nuchanart <br>
+        ยอดที่ต้องโอน: <span id="totalPay">0</span> บาท
+      </div>
+      <div style="text-align:center;margin-bottom:.8rem;">โอนแล้วกรอกฟอร์มยืนยันด้านล่าง</div>
+      <form id="confirmForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeN9F0XtWjPGB2S5gQkTbXguyj6ZqlL1cTO6gT1TkskzR0t_g/formResponse" method="POST" target="_blank" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>แนบสลิปโอนเงิน</label>
+          <input type="file" name="file" required>
+        </div>
+        <div class="form-group">
+          <label>ชื่อ-นามสกุล</label>
+          <input name="entry.1234567890" required>
+        </div>
+        <div class="form-group">
+          <label>เบอร์โทร</label>
+          <input name="entry.2345678901" required>
+        </div>
+        <div class="form-group">
+          <label>ที่อยู่สำหรับจัดส่ง</label>
+          <textarea name="entry.3456789012" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Account X (ถ้ามี)</label>
+          <input name="entry.4567890123">
+        </div>
+        <div class="form-group">
+          <label>หมายเหตุ (ถ้ามี)</label>
+          <input name="entry.5678901234">
+        </div>
+        <input type="hidden" id="orderDetail" name="entry.6789012345">
+        <button type="submit" class="btn-main">ส่งข้อมูลยืนยันโอน</button>
+      </form>
+      <div id="successMsg" class="success" style="display:none;">ส่งข้อมูลสำเร็จ! กรุณารอการตรวจสอบจากแอดมิน</div>
+    </div>
+  </div>
+  <script>
+    // ----- รายการสินค้า (ชื่อ, ราคาหลังลด 30%, ชื่อไฟล์ภาพ) -----
+    const products = [
+      {name: "That Summer Novel", price: 315, image: "that_summer.jpg"},
+      {name: "Burnout Syndrome Novel", price: 315, image: "burnout.jpg"},
+      {name: "Last Twilight (ENG)", price: 315, image: "last_twilight.jpg"},
+      {name: "Thamepo Novel (ENG)", price: 343, image: "thamepo.jpg"},
+      {name: "Ceri Doll Keychain", price: 553, image: "ceri_doll_keychain.jpg"},
+      {name: "Nilkhnake Doll Keychain", price: 553, image: "nilkhnake_doll_keychain.jpg"},
+      {name: "Collectible Card Set (AlmondProgress/Viewmim/Junemewnich)", price: 245, image: "collectible_card_set.jpg"},
+      {name: "Customizable Acrylic Keychain", price: 245, image: "acrylic_keychain.jpg"},
+      {name: "Fandom Phone Grippy (Box A/B)", price: 203, image: "phone_grippy.jpg"},
+      {name: "Magsafe Wallet Stand", price: 343, image: "magsafe_wallet.jpg"},
+      {name: "Sticker Set", price: 154, image: "sticker_set.jpg"},
+      {name: "Hair Band", price: 343, image: "hair_band.jpg"},
+      {name: "Huggy Bag", price: 413, image: "huggy_bag.jpg"},
+      {name: "Card Album", price: 210, image: "card_album.jpg"},
+      {name: "Sticky Fabric", price: 273, image: "sticky_fabric.jpg"},
+      {name: "Clear Pouch", price: 245, image: "clear_pouch.jpg"},
+      {name: "Charm Illusion Tote Bag", price: 623, image: "charm_illusion_tote.jpg"},
+      {name: "Patchy Illusion Tote Bag", price: 623, image: "patchy_illusion_tote.jpg"}
+    ];
+    let cart = Array(products.length).fill(0);
+
+    function renderProducts() {
+      let html = "";
+      products.forEach((p, i) => {
+        html += `
+          <div class="product-card">
+            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/90x90?text=No+Image';">
+            <h3>${p.name}</h3>
+            <div class="price">${p.price} ฿</div>
+            <input type="number" min="0" value="0" onchange="updateCart(${i}, this.value)">
+          </div>
+        `;
+      });
+      document.getElementById('productList').innerHTML = html;
+    }
+    renderProducts();
+
+    function updateCart(idx, val) {
+      cart[idx] = parseInt(val) || 0;
+      calcTotal();
+    }
+
+    function calcTotal() {
+      let total = 0, detail = '';
+      cart.forEach((q,i)=>{
+        if(q>0) detail += `${products[i].name} x ${q} (${products[i].price*q}฿)<br>`;
+        total += q*products[i].price;
+      });
+      document.getElementById('cartSummary').innerHTML = detail
+        ? detail + `<br><b>รวมทั้งหมด: ${total} บาท</b>` : "ยังไม่ได้เลือกสินค้า";
+      document.getElementById('totalPay').innerText = total;
+      document.getElementById('cartBox').style.display = total > 0 ? '' : 'none';
+    }
+
+    function showPay() {
+      if(cart.reduce((a,b)=>a+b,0)==0){
+        alert('กรุณาเลือกสินค้าก่อน');
+        return;
+      }
+      document.getElementById('paymentSection').style.display = '';
+      window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
+      // สร้างรายละเอียดออเดอร์ใส่ฟอร์ม
+      let orderText = '';
+      cart.forEach((q,i)=>{
+        if(q>0) orderText += `${products[i].name} x ${q} (${products[i].price*q}฿)\n`;
+      });
+      orderText += `รวมทั้งหมด: ${document.getElementById('totalPay').innerText} บาท`;
+      document.getElementById('orderDetail').value = orderText;
+    }
+    calcTotal();
+  </script>
+</body>
+</html>
