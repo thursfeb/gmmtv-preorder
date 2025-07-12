@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;GMMTV SHOP PREORDER&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Sarabun', sans-serif; background: #fff; color: #222; max-width: 520px; margin: auto; padding: 1rem;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1,h2 { text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.product { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.product label { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cart { background: #f9f9f9; border-radius: 1rem; padding: 1rem; margin: 2rem 0;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn { background: #111; color: #fff; padding: 8px 18px; border: none; border-radius: 10px; font-size: 1rem; margin: 10px auto; display: block;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#qrcode { display: block; margin: 20px auto; max-width: 200px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.form-group { margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, textarea { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #bbb; font-size: 1rem;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.note { font-size: 0.98rem; color: #666; margin: 0.5rem 0;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.success { background: #e6ffe6; padding: 1rem; border-radius: 8px; color: #10630c; margin-top: 1rem;}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;GMMTV SHOP&lt;br&gt;PREORDER&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p style="text-align:center;margin-bottom:1.5rem;"&gt;ลด 30% ทั้งร้าน &lt;b&gt;ยกเว้น Collectible Random Card&lt;/b&gt; ไม่เปิดขาย&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;form id="orderForm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;เลือกสินค้า&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="productList"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cart"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-size:1.05rem;"&gt;ยอดรวม &lt;span id="totalPrice"&gt;0&lt;/span&gt; บาท&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" class="btn" onclick="showPay()"&gt;ดำเนินการชำระเงิน&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="paymentSection" style="display:none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;ขั้นตอนชำระเงิน&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="note"&gt;1. โอนเงินตามยอดรวมด้านล่าง&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="https://i.imgur.com/S3Qle4c.png" id="qrcode" alt="QR พร้อมเพย์"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="text-align:center;margin:1rem 0;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;b&gt;พร้อมเพย์ 0917567358&lt;br&gt;Kanyarat Nuchanart&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:1.15rem;text-align:center;"&gt;ยอดที่ต้องโอน: &lt;span id="totalPay"&gt;0&lt;/span&gt; บาท&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="note"&gt;2. เมื่อโอนแล้ว โปรดกรอกแบบฟอร์มด้านล่าง พร้อมแนบสลิป เพื่อยืนยันการโอน&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Form embed (ปรับ FORM_ACTION &amp; ENTRY ให้ตรงกับของคุณ) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;form id="confirmForm" enctype="multipart/form-data" target="_blank"</p>
+<p class="p1"><span class="Apple-converted-space">          </span>action="https://docs.google.com/forms/d/e/1FAIpQLSeN9F0XtWjPGB2S5gQkTbXguyj6ZqlL1cTO6gT1TkskzR0t_g/formResponse" method="POST"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;แนบสลิปโอนเงิน&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="file" name="file" required&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;ชื่อ-นามสกุล&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input name="entry.1234567890" required&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;เบอร์โทร&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input name="entry.2345678901" required&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;ที่อยู่สำหรับจัดส่ง&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea name="entry.3456789012" required&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Account X (ถ้ามี)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input name="entry.4567890123"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;หมายเหตุ (ถ้ามี)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input name="entry.5678901234"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="hidden" id="orderDetail" name="entry.6789012345"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="text-align:center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="submit" class="btn"&gt;ส่งข้อมูลยืนยันโอน&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="successMsg" class="success" style="display:none;"&gt;ส่งข้อมูลสำเร็จ! กรุณารอการตรวจสอบจากแอดมิน&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ---- รายการสินค้า (ชื่อ, ราคาหลังลด 30%) ----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const products = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "That Summer Novel", price: 315},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Burnout Syndrome Novel", price: 315},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Last Twilight (ENG)", price: 315},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Thamepo Novel (ENG)", price: 343},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Ceri Doll Keychain", price: 553},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Nilkhnake Doll Keychain", price: 553},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Collectible Card Set (AlmondProgress/Viewmim/Junemewnich)", price: 245},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Customizable Acrylic Keychain", price: 245},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Fandom Phone Grippy (Box A/B)", price: 203},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Magsafe Wallet Stand", price: 343},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Sticker Set", price: 154},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Hair Band", price: 343},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Huggy Bag", price: 413},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Card Album", price: 210},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Sticky Fabric", price: 273},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Clear Pouch", price: 245},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Charm Illusion Tote Bag", price: 623},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name: "Patchy Illusion Tote Bag", price: 623}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ไม่มีสินค้า Random Card Boys/Girls</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cart = Array(products.length).fill(0);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderProducts() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let html = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>products.forEach((p, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html += `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="product"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;${p.name} &lt;span style="color:#2c6a4f"&gt;(${p.price}฿)&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="number" min="0" value="0" style="width:55px;" onchange="updateCart(${i}, this.value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('productList').innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderProducts();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateCart(idx, val) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cart[idx] = parseInt(val) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>calcTotal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calcTotal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let total = 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cart.forEach((q,i)=&gt;total+=q*products[i].price);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('totalPrice').innerText = total;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('totalPay').innerText = total;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showPay() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(cart.reduce((a,b)=&gt;a+b,0)==0){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert('กรุณาเลือกสินค้าก่อน');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('paymentSection').style.display = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// สร้างรายละเอียดออเดอร์ใส่ฟอร์ม</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let orderText = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cart.forEach((q,i)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(q&gt;0) orderText += `${products[i].name} x ${q} (${products[i].price*q}฿)\n`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>orderText += `รวมทั้งหมด: ${document.getElementById('totalPay').innerText} บาท`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('orderDetail').value = orderText;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>calcTotal();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
