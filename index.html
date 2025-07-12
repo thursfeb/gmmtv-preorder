@@ -80,37 +80,14 @@
 </div>
 
 <script>
-// =============== ตัวเลือก ==================
-
-// 1. Mascots GMMTV (ตามที่ให้มา)
 const mascotsGMMTV = [
-  "KINGMAN",
-  "BABII",
-  "POLCASAN",
-  "MR. SATURNWORLD",
-  "PAODY",
-  "TOMAFOX",
-  "JAIDEE",
-  "AVOCEAN",
-  "SAMRUAY",
-  "JUMMO",
-  "GUINZLY",
-  "ANGELO",
-  "WESLEY",
-  "MUVMUV",
-  "META",
-  "CERI",
-  "PERMPOON",
-  "LUNAR",
-  "ANY",
-  "NILKHNAKE",
-  "SHYLE",
-  "NONGNOOONG",
-  "LYKOU"
+  "KINGMAN", "BABII", "POLCASAN", "MR. SATURNWORLD", "PAODY",
+  "TOMAFOX", "JAIDEE", "AVOCEAN", "SAMRUAY", "JUMMO", "GUINZLY",
+  "ANGELO", "WESLEY", "MUVMUV", "META", "CERI", "PERMPOON",
+  "LUNAR", "ANY", "NILKHNAKE", "SHYLE", "NONGNOOONG", "LYKOU"
 ];
 
-// 2. BL/GL/Rising Couples
-const gmmtvCoupleNames = [
+const coupleNames = [
   "OFFGUN", "TAYNEW", "BRIGHTWIN", "EARTHMIX", "PONDPHUWIN", "OHMNANON",
   "FORCEBOOK", "JOONGDUNK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH",
   "WINNYSATANG", "GREATINN", "SEAKEEN", "PERTHSANTA", "WILLIAMEST", "JUNIORMARK",
@@ -119,127 +96,35 @@ const gmmtvCoupleNames = [
   "JAMIEEARN", "KENPAUL", "PODPAPANG", "ALMONDPROGRESS"
 ];
 
-// 3. สำหรับสินค้าเลือก Box A/B เท่านั้น
 const boxOptions = ["BOX A", "BOX B"];
 
-// =============== รายการสินค้า (ตัวอย่าง) ==================
+// ราคาเต็ม → ราคาหลังลด 30%
+function sale(p) { return Math.round(p * 0.7); }
 
 const PRODUCTS = [
-  // ------ สินค้าที่เลือกมาสคอตได้ ------
-  {
-    id: "sticker_set",
-    title: "Sticker Set",
-    price: 220,
-    image: "images/sticker_set.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "hair_band",
-    title: "Hair Band",
-    price: 490,
-    image: "images/hair_band.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "huggy_bag",
-    title: "Huggy Bag",
-    price: 590,
-    image: "images/huggy_bag.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "sticky_fabric",
-    title: "Sticky Fabric",
-    price: 390,
-    image: "images/sticky_fabric.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "clear_pouch",
-    title: "Clear Pouch",
-    price: 350,
-    image: "images/clear_pouch.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "charm_illusion_tote",
-    title: "Fandom Character Charm Illusion Tote Bag",
-    price: 890,
-    image: "images/charm_illusion_tote.jpg",
-    select: mascotsGMMTV
-  },
-  {
-    id: "patchy_illusion_tote",
-    title: "Fandom Character Patchy Illusion Tote Bag",
-    price: 890,
-    image: "images/patchy_illusion_tote.jpg",
-    select: mascotsGMMTV
-  },
-  // ------ สินค้าที่เลือกได้แค่ BOX ------
-  {
-    id: "phone_grippy",
-    title: "Fandom Phone Grippy (Random)",
-    price: 290,
-    image: "images/phone_grippy.jpg",
-    select: boxOptions
-  },
-  // ------ สินค้าที่เลือกคู่ชิป BL/GL ได้ ------
-  {
-    id: "acrylic_keychain",
-    title: "Customizable Acrylic Keychain",
-    price: 350,
-    image: "images/acrylic_keychain.jpg",
-    select: gmmtvCoupleNames
-  },
-  {
-    id: "collectible_card_album",
-    title: "Collectible Card Album",
-    price: 300,
-    image: "images/card_album.jpg",
-    select: gmmtvCoupleNames
-  },
-  // ------ สินค้าอื่น (ไม่มี dropdown) ------
-  {
-    id: "that_summer",
-    title: "That Summer (นิยาย)",
-    price: 450,
-    image: "images/that_summer.jpg"
-  },
-  {
-    id: "burnout",
-    title: "Burnout Syndrome (นิยาย)",
-    price: 450,
-    image: "images/burnout.jpg"
-  },
-  {
-    id: "last_twilight",
-    title: "Last Twilight (นิยาย)",
-    price: 450,
-    image: "images/last_twilight.jpg"
-  },
-  {
-    id: "thamepo",
-    title: "Thamepo (Heart That Skips a Beat Novel)",
-    price: 490,
-    image: "images/thamepo.jpg"
-  },
-  {
-    id: "ceri_doll_keychain",
-    title: "Ceri Doll Keychain",
-    price: 790,
-    image: "images/ceri_doll_keychain.jpg"
-  },
-  {
-    id: "nilkhnake_doll_keychain",
-    title: "Nilkhnake Doll Keychain",
-    price: 790,
-    image: "images/nilkhnake_doll_keychain.jpg"
-  },
+  // สินค้ามาสคอต
+  {id: "sticker_set", title: "Sticker Set", price: sale(220), image: "images/sticker_set.jpg", select: mascotsGMMTV},
+  {id: "hair_band", title: "Hair Band", price: sale(490), image: "images/hair_band.jpg", select: mascotsGMMTV},
+  {id: "huggy_bag", title: "Huggy Bag", price: sale(590), image: "images/huggy_bag.jpg", select: mascotsGMMTV},
+  {id: "sticky_fabric", title: "Sticky Fabric", price: sale(390), image: "images/sticky_fabric.jpg", select: mascotsGMMTV},
+  {id: "clear_pouch", title: "Clear Pouch", price: sale(350), image: "images/clear_pouch.jpg", select: mascotsGMMTV},
+  {id: "charm_illusion_tote", title: "Fandom Character Charm Illusion Tote Bag", price: sale(890), image: "images/charm_illusion_tote.jpg", select: mascotsGMMTV},
+  {id: "patchy_illusion_tote", title: "Fandom Character Patchy Illusion Tote Bag", price: sale(890), image: "images/patchy_illusion_tote.jpg", select: mascotsGMMTV},
+  // สินค้าที่เลือก BOX
+  {id: "phone_grippy", title: "Fandom Phone Grippy (Random)", price: sale(290), image: "images/phone_grippy.jpg", select: boxOptions},
+  // สินค้าที่เลือกคู่เท่านั้น (BL/GL/Side)
+  {id: "acrylic_keychain", title: "Customizable Acrylic Keychain", price: sale(350), image: "images/acrylic_keychain.jpg", select: coupleNames},
+  {id: "collectible_card_album", title: "Collectible Card Album", price: sale(300), image: "images/card_album.jpg", select: coupleNames},
+  // สินค้าอื่น
+  {id: "that_summer", title: "That Summer (นิยาย)", price: sale(450), image: "images/that_summer.jpg"},
+  {id: "burnout", title: "Burnout Syndrome (นิยาย)", price: sale(450), image: "images/burnout.jpg"},
+  {id: "last_twilight", title: "Last Twilight (นิยาย)", price: sale(450), image: "images/last_twilight.jpg"},
+  {id: "thamepo", title: "Thamepo (Heart That Skips a Beat Novel)", price: sale(490), image: "images/thamepo.jpg"},
+  {id: "ceri_doll_keychain", title: "Ceri Doll Keychain", price: sale(790), image: "images/ceri_doll_keychain.jpg"},
+  {id: "nilkhnake_doll_keychain", title: "Nilkhnake Doll Keychain", price: sale(790), image: "images/nilkhnake_doll_keychain.jpg"},
 ];
 
 let cart = [];
-
-// Render Products
 function renderProducts(){
   const container = document.getElementById('products');
   container.innerHTML = '';
