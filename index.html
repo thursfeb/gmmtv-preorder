@@ -166,13 +166,23 @@
     #paymentSection {
       padding: 2rem 0 .5rem 0;
     }
-    #qrcode {
-      display: block;
-      margin: 1.6rem auto 1.1rem;
-      border-radius: 1rem;
-      box-shadow: 0 2px 6px #0002;
-      max-width: 160px;
+    /* --- เปลี่ยนสีปุ่มแดงตรงฟอร์ม --- */
+    .form-link-block .red-btn {
+      background:#e53935!important;
+      color:#fff!important;
+      padding:.5rem 1.2rem;
+      font-weight:700;
+      border-radius:1.2rem;
+      text-decoration:none;
+      box-shadow:0 2px 8px #f5bcbc77;
+      display:inline-block;
+      margin-left:4px;
+      transition:.15s;
     }
+    .form-link-block .red-btn:hover {
+      background:#b91818!important;
+    }
+    #qrcode {display:none;}
     .pay-detail {
       text-align: center;
       color: #176842;
@@ -211,17 +221,10 @@
       box-shadow: 0 0 12px #d8e5fa33;
     }
     .form-link-block a {
-      color: #0c5396;
-      background: #e8f2ff;
-      padding: .5rem 1.3rem;
-      border-radius: 1.2rem;
       font-size: 1.13rem;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 2px 8px #b5c7e633;
-      transition:.2s;
       margin-top:.7rem;
-      display:inline-block;
     }
     .order-textarea {
       width:95%;max-width:550px;min-height:70px;padding:8px 14px;
@@ -282,10 +285,9 @@
       <div id="orderSummaryBlock"></div>
       <button class="btn-main" onclick="showPay()">ดำเนินการชำระเงิน</button>
     </div>
-
     <div id="paymentSection" style="display:none;">
       <div class="order-summary-block" id="orderSummaryPay"></div>
-
+      <!-- QR พร้อมเพย์ ถูกลบออก -->
       <div class="pay-detail" style="background:#e5f9ee;">
         พร้อมเพย์: <span id="promptpay" style="font-size:1.19rem;color:#0c5396;font-weight:700;">0917567358</span>
         <button class="copy-btn" onclick="copyPromptpay()">Copy</button>
@@ -293,15 +295,13 @@
         ยอดที่ต้องโอน: <span id="totalPay">0</span> บาท
         <span id="copyPPok" style="color:#198b37;font-weight:500;font-size:.98rem;display:none;margin-left:7px;">คัดลอกแล้ว!</span>
       </div>
-
       <div class="warn-nocoupon" style="margin-top:.5rem;">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
       <div class="form-link-block" style="background:#eef1fd;">
         <div style="font-weight:600;margin-bottom:8px;">
           👉 เมื่อโอนแล้ว 
           <a href="https://forms.gle/rs8wSC7psGdwheE39" 
-             target="_blank"
-             style="background:#e53935;color:white;padding:.5rem 1.2rem;font-weight:700;
-             border-radius:1.2rem;text-decoration:none;box-shadow:0 2px 8px #f5bcbc77;display:inline-block;margin-left:4px;">
+             class="red-btn"
+             target="_blank">
              กรอกฟอร์มยืนยันโอนเงินที่นี่
           </a>
         </div>
@@ -312,7 +312,8 @@
         <span id="copyOk" style="color:#198b37;font-weight:500;font-size:.98rem;display:none;margin-left:7px;">คัดลอกแล้ว!</span>
       </div>
     </div>
-
+  </div>
+  <script>
     // ----- รายการสินค้า (ไม่มี Fandom Phone Grippy Random, ขนาดรูป 200x300) -----
     const products = [
       {name: "That Summer Novel", price: 315, image: "that_summer.jpg"},
