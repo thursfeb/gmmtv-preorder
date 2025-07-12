@@ -65,13 +65,13 @@
       padding: 1.2rem 1rem 1.2rem;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
-      min-height: 420px;
+      min-height: 350px;
       transition:.2s;
       position:relative;
     }
     .product-card img {
-      width: 400px;
-      height: 500px;
+      width: 200px;
+      height: 300px;
       max-width: 100%;
       max-height: 100%;
       object-fit: cover;
@@ -254,13 +254,13 @@
     }
     @media (max-width: 1100px) {
       .container {max-width:98vw;padding:1rem;}
-      .product-card img {width:300px;height:400px;}
+      .product-card img {width:150px;height:230px;}
     }
     @media (max-width: 700px) {
       body {overflow-x:auto;}
       .container {min-width:1100px;}
       .product-list {min-width:900px;}
-      .product-card img {width:240px;height:320px;}
+      .product-card img {width:120px;height:180px;}
     }
   </style>
 </head>
@@ -309,7 +309,7 @@
     </div>
   </div>
   <script>
-    // ----- รายการสินค้า (ชื่อ, ราคาหลังลด 30%, ชื่อไฟล์ภาพ) -----
+    // ----- รายการสินค้า (ไม่มี Fandom Phone Grippy Random, ขนาดรูป 200x300) -----
     const products = [
       {name: "That Summer Novel", price: 315, image: "that_summer.jpg"},
       {name: "Burnout Syndrome Novel", price: 315, image: "burnout.jpg"},
@@ -319,7 +319,6 @@
       {name: "Nilkhnake Doll Keychain", price: 555, image: "nilkhnake_doll_keychain.jpg"},
       {name: "Collectible Card Set (AlmondProgress/Viewmim/Junemewnich)", price: 245, image: "collectible_card_set.jpg"},
       {name: "Customizable Acrylic Keychain", price: 245, image: "acrylic_keychai.jpg"},
-      {name: "Fandom Phone Grippy (Random)", price: 203, image: "phone_grippy.jpg"},
       {name: "Fandom Phone Grippy (Not Random)", price: 245, image: "phone_grippy.jpg"},
       {name: "Magsafe Wallet Stand", price: 343, image: "magsafe_wallet.jpg"},
       {name: "Sticker Set", price: 154, image: "sticker_set.jpg"},
@@ -338,7 +337,7 @@
       products.forEach((p, i) => {
         html += `
           <div class="product-card">
-            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x500?text=No+Image';">
+            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Image';">
             <h3>${p.name}</h3>
             <div class="price">${p.price} ฿</div>
             <input type="number" min="0" value="0" onchange="updateCart(${i}, this.value)">
