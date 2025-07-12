@@ -2,30 +2,30 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Pre-Order for Fansign | GMMTV SHOP</title>
+  <title>GMMTV Pre-Order for Fansign</title>
   <meta name="viewport" content="width=1200">
   <link href="https://fonts.googleapis.com/css?family=Sarabun:400,700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Sarabun', sans-serif; background: #f7f9fa; margin: 0; color: #222;}
-    .container { max-width: 1200px; margin: 32px auto; padding: 24px; background: #fff; border-radius: 18px; box-shadow: 0 4px 16px #e4e4e4;}
-    h1 { font-size: 2.6rem; margin-bottom: 8px; text-align: center;}
+    .container { max-width: 1100px; margin: 32px auto; padding: 28px; background: #fff; border-radius: 18px; box-shadow: 0 4px 18px #e4e4e4;}
+    h1 { font-size: 2.5rem; margin-bottom: 8px; text-align: center;}
     .red-note { color: #e12d2d; background: #ffecec; font-size: 1.1rem; border-radius: 18px; padding: 14px 8px; margin-bottom: 18px; font-weight: bold; text-align:center;}
     .star-note { color: #e12d2d; font-size: 2rem; font-weight: bold; text-align: center;}
-    .products { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px;}
-    .product-card { background: #f5f8fb; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 2px 8px #e8e8e8;}
-    .product-card img { width: 200px; height: 300px; object-fit: cover; border-radius: 12px; border: 1.5px solid #f2e4f6;}
-    .prod-title { font-weight: bold; margin-top: 8px; font-size: 1.15rem;}
-    .prod-price { color: #e7672f; font-weight: bold; font-size: 1.25rem;}
+    .products { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px;}
+    .product-card { background: #f5f8fb; border-radius: 14px; padding: 18px 12px; text-align: center; box-shadow: 0 2px 8px #e8e8e8;}
+    .product-card img { width: 180px; height: 270px; object-fit: cover; border-radius: 12px; border: 1.5px solid #f2e4f6;}
+    .prod-title { font-weight: bold; margin-top: 9px; font-size: 1.09rem;}
+    .prod-price { color: #e7672f; font-weight: bold; font-size: 1.18rem;}
     select, input[type='number'] { padding: 7px 10px; border-radius: 7px; border: 1.5px solid #e4e4e4; font-size: 1rem; margin-top:8px;}
-    .btn-add { background: #18b951; color: #fff; border: none; padding: 8px 18px; border-radius: 8px; margin: 12px 0 0 0; cursor: pointer; font-weight: bold;}
+    .btn-add { background: #18b951; color: #fff; border: none; padding: 7px 14px; border-radius: 8px; margin: 12px 0 0 0; cursor: pointer; font-weight: bold;}
     .btn-add:disabled { background: #bbb; }
     .btn-remove { background: #e13232; color: #fff; border: none; padding: 3px 11px; border-radius: 6px; margin-left: 10px; font-size: .9rem; cursor: pointer;}
     .cart-section { background: #f7fff6; border-radius: 16px; margin-top: 38px; padding: 22px; box-shadow: 0 2px 8px #e4e4e4;}
     .cart-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;}
     .cart-list { margin: 0 0 8px 0; }
-    .cart-item { font-size: 1.15rem; margin: 8px 0; display: flex; align-items: center;}
+    .cart-item { font-size: 1.09rem; margin: 8px 0; display: flex; align-items: center;}
     .cart-item select, .cart-item input { margin: 0 8px;}
-    .cart-sum { color: #e12d2d; font-size: 1.25rem; font-weight: bold; text-align:right;}
+    .cart-sum { color: #e12d2d; font-size: 1.18rem; font-weight: bold; text-align:right;}
     .btn-copy { background: #ffd797; color: #8d5a00; border: none; padding: 6px 14px; border-radius: 7px; font-weight: bold; margin-left: 10px; cursor: pointer;}
     .pay-section { margin-top: 36px; background: #eaffea; border-radius: 16px; padding: 14px 10px; text-align: center;}
     .pay-number { color: #178046; font-size: 1.13rem; font-weight: bold;}
@@ -33,7 +33,7 @@
     .pay-total { color: #067911; font-size: 1.1rem; font-weight: bold;}
     .form-section { margin-top: 18px; background: #e3eafd; border-radius: 15px; padding: 14px;}
     .form-link-btn { background: #e12d2d; color: #fff; font-weight: bold; border: none; border-radius: 9px; font-size: 1.1rem; padding: 10px 22px; margin: 16px 0 20px 0; cursor: pointer;}
-    .summary-box {background: #fff7e7; border-radius: 14px; margin-top: 10px; padding: 18px 20px; font-size: 1.1rem;}
+    textarea {width:95%;margin-top:10px;height:80px;background:#fff7ee;border-radius:9px;padding:8px;font-size:1rem;}
     @media (max-width: 1100px){
       .products { grid-template-columns: repeat(2,1fr);}
     }
@@ -72,7 +72,7 @@
     <div>
       👉 เมื่อโอนแล้ว <a href="https://forms.gle/rs8wSC7psGdwheE39" class="form-link-btn" target="_blank">กรอกฟอร์มยืนยันโอนเงินที่นี่</a>
     </div>
-    <textarea id="orderSummaryBox" style="width:95%;margin-top:10px;height:80px;background:#fff7ee;border-radius:9px;padding:8px;font-size:1rem"></textarea>
+    <textarea id="orderSummaryBox"></textarea>
     <div style="margin-top:10px;">
       <button class="btn-copy" onclick="copyOrderSummary()">Copy รายการ</button>
     </div>
@@ -80,31 +80,125 @@
 </div>
 
 <script>
-// ศิลปินทั้งหมด GMMTV 2024 (อัปเดตเฉพาะในโปสเตอร์ที่เลือกได้)
-const ARTISTS_BOYS = [
-  "GEMINI", "FOURTH", "WIN", "SATANG", "MARK", "PAKRON", "NEO", "LOUIS",
-  "YIN", "WAR", "SEA", "BOMB", "BOOM", "JOONG", "DUNK", "JIMMY", "SEA", "MIKE",
-  "TAY", "NEW", "OFF", "GUN", "TAY", "Tae", "LEE", "PUP", "NATT", "OHM", "NANON", "PERTH", "MEW", "PODD", "PATRICK", "AJ", "JJ", "ARM", "LAY", "FORD", "FLUKE", "PATT", "SING", "PIP", "PRAME"
-];
-const ARTISTS_GIRLS = [
-  "NAMTAN", "FILM", "FON", "ANGIE", "AYE", "MILK", "JUNÉ", "VIEW", "BEBE", "PRIGKENG", "KHWAENG", "CHRIS", "BAM", "LOOKWA", "AM", "EARN", "NANA", "PRIM", "ALICE", "BONNIE"
-];
-// คู่จิ้น/ศิลปินคู่ (เฉพาะกลุ่มสินค้า Card/Keychain)
-const ARTISTS_BOY_COUPLE = [
-  "GEMINI/FOURTH", "WIN/SATANG", "NEO/LOUIS", "JOONG/DUNK", "YIN/WAR",
-  "OFF/GUN", "TAY/NEW", "JIMMY/SEA", "OHM/NANON", "PODD/PATRICK", "AJ/JJ"
-];
-const ARTISTS_GIRL_COUPLE = [
-  "MILK/LOVE", "NAMTAN/FILM", "BEBE/BONNIE", "PRIM/JUNE", "JUNÉ/VIEW"
-];
-// มาสคอต/คาแรคเตอร์
-const CHARACTERS = [
-  "DOMGA", "GUNGLY", "CERI", "AVOCAN", "SAMUAY", "JAMOO", "LUNAR", "ANY", "POGASAN", "PADDY", "JADDEE", "KING MAN", "MR. SATURNWORLD", "PEMPOM", "YUZU MUMU", "LOOK KHUNMOO", "NONG NOODOO", "ANGELO", "WESLEY", "MOAD", "META", "NILKHNAKE", "SMYLE", "NEONA", "LYKYOU"
+// =============== ตัวเลือก ==================
+
+// 1. Mascots GMMTV (ตามที่ให้มา)
+const mascotsGMMTV = [
+  "KINGMAN",
+  "BABII",
+  "POLCASAN",
+  "MR. SATURNWORLD",
+  "PAODY",
+  "TOMAFOX",
+  "JAIDEE",
+  "AVOCEAN",
+  "SAMRUAY",
+  "JUMMO",
+  "GUINZLY",
+  "ANGELO",
+  "WESLEY",
+  "MUVMUV",
+  "META",
+  "CERI",
+  "PERMPOON",
+  "LUNAR",
+  "ANY",
+  "NILKHNAKE",
+  "SHYLE",
+  "NONGNOOONG",
+  "LYKOU"
 ];
 
-// Products
+// 2. BL/GL/Rising Couples
+const gmmtvCoupleNames = [
+  "OFFGUN", "TAYNEW", "BRIGHTWIN", "EARTHMIX", "PONDPHUWIN", "OHMNANON",
+  "FORCEBOOK", "JOONGDUNK", "JIMMYSEA", "FIRSTKHAOTUNG", "GEMINIFOURTH",
+  "WINNYSATANG", "GREATINN", "SEAKEEN", "PERTHSANTA", "WILLIAMEST", "JUNIORMARK",
+  "JOSSGAWIN", "MARKOHM", "AOUBOOM", "SURFJAVA", "LUKEMICK", "CHOKUNASTON",
+  "MILKLOVE", "EMIBONNIE", "NAMTANFILM", "VIEWMIM", "JUNEMEWNICH",
+  "JAMIEEARN", "KENPAUL", "PODPAPANG", "ALMONDPROGRESS"
+];
+
+// 3. สำหรับสินค้าเลือก Box A/B เท่านั้น
+const boxOptions = ["BOX A", "BOX B"];
+
+// =============== รายการสินค้า (ตัวอย่าง) ==================
+
 const PRODUCTS = [
-  // ----------------- นิยาย -----------------
+  // ------ สินค้าที่เลือกมาสคอตได้ ------
+  {
+    id: "sticker_set",
+    title: "Sticker Set",
+    price: 220,
+    image: "images/sticker_set.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "hair_band",
+    title: "Hair Band",
+    price: 490,
+    image: "images/hair_band.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "huggy_bag",
+    title: "Huggy Bag",
+    price: 590,
+    image: "images/huggy_bag.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "sticky_fabric",
+    title: "Sticky Fabric",
+    price: 390,
+    image: "images/sticky_fabric.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "clear_pouch",
+    title: "Clear Pouch",
+    price: 350,
+    image: "images/clear_pouch.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "charm_illusion_tote",
+    title: "Fandom Character Charm Illusion Tote Bag",
+    price: 890,
+    image: "images/charm_illusion_tote.jpg",
+    select: mascotsGMMTV
+  },
+  {
+    id: "patchy_illusion_tote",
+    title: "Fandom Character Patchy Illusion Tote Bag",
+    price: 890,
+    image: "images/patchy_illusion_tote.jpg",
+    select: mascotsGMMTV
+  },
+  // ------ สินค้าที่เลือกได้แค่ BOX ------
+  {
+    id: "phone_grippy",
+    title: "Fandom Phone Grippy (Random)",
+    price: 290,
+    image: "images/phone_grippy.jpg",
+    select: boxOptions
+  },
+  // ------ สินค้าที่เลือกคู่ชิป BL/GL ได้ ------
+  {
+    id: "acrylic_keychain",
+    title: "Customizable Acrylic Keychain",
+    price: 350,
+    image: "images/acrylic_keychain.jpg",
+    select: gmmtvCoupleNames
+  },
+  {
+    id: "collectible_card_album",
+    title: "Collectible Card Album",
+    price: 300,
+    image: "images/card_album.jpg",
+    select: gmmtvCoupleNames
+  },
+  // ------ สินค้าอื่น (ไม่มี dropdown) ------
   {
     id: "that_summer",
     title: "That Summer (นิยาย)",
@@ -129,7 +223,6 @@ const PRODUCTS = [
     price: 490,
     image: "images/thamepo.jpg"
   },
-  // ----------------- Doll Keychain -----------------
   {
     id: "ceri_doll_keychain",
     title: "Ceri Doll Keychain",
@@ -142,116 +235,8 @@ const PRODUCTS = [
     price: 790,
     image: "images/nilkhnake_doll_keychain.jpg"
   },
-  // ----------------- Card (set/random) -----------------
-  {
-    id: "collectible_card_set",
-    title: "Collectible Card Set",
-    price: 350,
-    image: "images/collectible_card_set.jpg",
-    select: ["ALMONDPROGRESS", "VIEWMIM", "JUNEMEWNICH"]
-  },
-  {
-    id: "collectible_card_album",
-    title: "Collectible Card Album",
-    price: 300,
-    image: "images/card_album.jpg",
-    select: [
-      "KING MAN", "BABI", "POGASAN", "MR. SATURNWORLD", "PADDY", "TOMAYOK", "JAIDEE", "AVOCAN", "SAMUAY", "JAMOO", "GUNGLY", "CERI", "MILKYWAY", "LUNAR", "ANY", "ALMONDPROGRESS", "MUUYE", "AMY", "META", "NILKHNAKE", "LYKYOU"
-    ]
-  },
-  {
-    id: "collectible_card_boy_random",
-    title: "BOYS: Collectible Random Cards",
-    price: 200,
-    image: "images/collectible_card_set.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_BOY_COUPLE)
-  },
-  {
-    id: "collectible_card_girl_random",
-    title: "GIRLS: Collectible Random Cards",
-    price: 200,
-    image: "images/collectible_card_set.jpg",
-    select: ARTISTS_GIRLS.concat(ARTISTS_GIRL_COUPLE)
-  },
-  // ----------------- Acrylic Keychain -----------------
-  {
-    id: "acrylic_keychain",
-    title: "Customizable Acrylic Keychain",
-    price: 350,
-    image: "images/acrylic_keychai.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, ARTISTS_BOY_COUPLE, ARTISTS_GIRL_COUPLE, CHARACTERS)
-  },
-  // ----------------- Phone Grippy -----------------
-  {
-    id: "phone_grippy",
-    title: "Fandom Phone Grippy (Random)",
-    price: 290,
-    image: "images/phone_grippy.jpg",
-    select: [
-      { box: "A", names: ["BABI", "POGASAN", "PADDY", "TOMAYOK", "JAIDEE", "AVOCAN", "SAMUAY", "DOMGA", "JAMOO", "GUNGLY", "CERI", "MILKYWAY", "LUNAR", "ANY"] },
-      { box: "B", names: ["KING MAN", "MR. SATURNWORLD", "PEMPOM", "YUZU MUMU", "LOOK KHUNMOO", "NONG NOODOO", "ANGELO", "WESLEY", "MOAD", "META", "NILKHNAKE", "SMYLE", "NEONA", "LYKYOU"] }
-    ]
-  },
-  // ----------------- MagSafe/Sticker/Hairband/Huggy Bag -----------------
-  {
-    id: "magsafe_wallet",
-    title: "Magsafe Wallet Stand",
-    price: 490,
-    image: "images/magsafe_wallet.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS)
-  },
-  {
-    id: "sticker_set",
-    title: "Sticker Set",
-    price: 220,
-    image: "images/sticker_set.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
-  },
-  {
-    id: "hair_band",
-    title: "Hair Band",
-    price: 490,
-    image: "images/hair_band.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
-  },
-  {
-    id: "huggy_bag",
-    title: "Huggy Bag",
-    price: 590,
-    image: "images/huggy_bag.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
-  },
-  // ----------------- Sticky/Clear Pouch -----------------
-  {
-    id: "sticky_fabric",
-    title: "Sticky Fabric",
-    price: 390,
-    image: "images/sticky_fabric.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
-  },
-  {
-    id: "clear_pouch",
-    title: "Clear Pouch",
-    price: 350,
-    image: "images/clear_pouch.jpg",
-    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
-  },
-  // ----------------- Tote Bag -----------------
-  {
-    id: "charm_illusion_tote",
-    title: "Fandom Character Charm Illusion Tote Bag",
-    price: 890,
-    image: "images/charm_illusion_tote.jpg"
-  },
-  {
-    id: "patchy_illusion_tote",
-    title: "Fandom Character Patchy Illusion Tote Bag",
-    price: 890,
-    image: "images/patchy_illusion_tote.jpg"
-  }
 ];
 
-// ----- ตะกร้า (cart) -----
 let cart = [];
 
 // Render Products
@@ -260,27 +245,13 @@ function renderProducts(){
   container.innerHTML = '';
   PRODUCTS.forEach(prod => {
     let prodSelect = '';
-    // ถ้ามี select (เลือกศิลปิน/มาสคอต)
     if(prod.select){
-      if(prod.id === "phone_grippy"){ // Special for phone_grippy
-        prodSelect = `
-          <select id="select_${prod.id}_box" style="margin-top:10px;width:60%;" onchange="updateBoxDropdown('${prod.id}')">
-            <option value="">เลือกกล่อง</option>
-            <option value="A">BOX A</option>
-            <option value="B">BOX B</option>
-          </select>
-          <select id="select_${prod.id}_name" style="margin-top:10px;width:80%;">
-            <option value="">เลือกศิลปิน/มาสคอต</option>
-          </select>
-        `;
-      }else{
-        prodSelect = `
-          <select id="select_${prod.id}" style="margin-top:10px;width:95%;">
-            <option value="">เลือกศิลปิน/คู่/มาสคอต</option>
-            ${prod.select.map(a=>`<option value="${a}">${a}</option>`).join("")}
-          </select>
-        `;
-      }
+      prodSelect = `
+        <select id="select_${prod.id}" style="margin-top:10px;width:95%;">
+          <option value="">${prod.select===boxOptions ? 'เลือก BOX A หรือ BOX B' : 'เลือกชื่อ'}</option>
+          ${prod.select.map(a=>`<option value="${a}">${a}</option>`).join("")}
+        </select>
+      `;
     }
     container.innerHTML += `
       <div class="product-card">
@@ -295,35 +266,13 @@ function renderProducts(){
 }
 window.onload = renderProducts;
 
-// Special: dropdown เปลี่ยน box -> ชื่อใน box
-function updateBoxDropdown(pid){
-  const boxVal = document.getElementById(`select_${pid}_box`).value;
-  const nameSelect = document.getElementById(`select_${pid}_name`);
-  nameSelect.innerHTML = `<option value="">เลือกศิลปิน/มาสคอต</option>`;
-  if(!boxVal) return;
-  const prod = PRODUCTS.find(x=>x.id===pid);
-  const group = prod.select.find(x=>x.box===boxVal);
-  if(group){
-    nameSelect.innerHTML += group.names.map(a=>`<option value="${a}">${a}</option>`).join("");
-  }
-}
-
-// เพิ่มสินค้าในตะกร้า
 function addToCart(pid){
   const prod = PRODUCTS.find(x=>x.id===pid);
   let selectVal = "";
   if(prod.select){
-    if(prod.id === "phone_grippy"){
-      let boxVal = document.getElementById(`select_${pid}_box`).value;
-      let nameVal = document.getElementById(`select_${pid}_name`).value;
-      if(!boxVal || !nameVal){ alert("กรุณาเลือกกล่องและชื่อมาสคอต"); return;}
-      selectVal = `${boxVal}: ${nameVal}`;
-    }else{
-      selectVal = document.getElementById(`select_${pid}`).value;
-      if(!selectVal){ alert("กรุณาเลือกศิลปิน/คู่/มาสคอต"); return;}
-    }
+    selectVal = document.getElementById(`select_${pid}`).value;
+    if(!selectVal){ alert(prod.select===boxOptions ? "กรุณาเลือก BOX" : "กรุณาเลือกชื่อในรายการ"); return;}
   }
-  // ตรวจใน cart ซ้ำ
   const same = cart.find(x=>x.id===pid && x.option===selectVal);
   if(same){
     same.qty += 1;
@@ -333,7 +282,6 @@ function addToCart(pid){
   renderCart();
 }
 
-// Render Cart
 function renderCart(){
   const cartList = document.getElementById("cartList");
   const cartSection = document.getElementById("cartSection");
@@ -363,19 +311,16 @@ function renderCart(){
   }).join('\n') + `\nรวมทั้งหมด: ${sum} บาท`;
 }
 
-// อัปเดตจำนวน
 function updateQty(idx, val){
   let v = parseInt(val);
   if(isNaN(v)||v<1) v=1;
   cart[idx].qty = v;
   renderCart();
 }
-// ลบ
 function removeCart(idx){
   cart.splice(idx,1);
   renderCart();
 }
-// Copy function
 function copyOrderSummary(){
   const t = document.getElementById("orderSummaryBox");
   t.select(); t.setSelectionRange(0,9999);
