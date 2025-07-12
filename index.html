@@ -3,416 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <title>Pre-Order for Fansign | GMMTV SHOP</title>
-  <meta name="viewport" content="width=1024">
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=1200">
+  <link href="https://fonts.googleapis.com/css?family=Sarabun:400,700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Kanit', Arial, sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      margin: 0;
-      padding: 0;
+    body { font-family: 'Sarabun', sans-serif; background: #f7f9fa; margin: 0; color: #222;}
+    .container { max-width: 1200px; margin: 32px auto; padding: 24px; background: #fff; border-radius: 18px; box-shadow: 0 4px 16px #e4e4e4;}
+    h1 { font-size: 2.6rem; margin-bottom: 8px; text-align: center;}
+    .red-note { color: #e12d2d; background: #ffecec; font-size: 1.1rem; border-radius: 18px; padding: 14px 8px; margin-bottom: 18px; font-weight: bold; text-align:center;}
+    .star-note { color: #e12d2d; font-size: 2rem; font-weight: bold; text-align: center;}
+    .products { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px;}
+    .product-card { background: #f5f8fb; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 2px 8px #e8e8e8;}
+    .product-card img { width: 200px; height: 300px; object-fit: cover; border-radius: 12px; border: 1.5px solid #f2e4f6;}
+    .prod-title { font-weight: bold; margin-top: 8px; font-size: 1.15rem;}
+    .prod-price { color: #e7672f; font-weight: bold; font-size: 1.25rem;}
+    select, input[type='number'] { padding: 7px 10px; border-radius: 7px; border: 1.5px solid #e4e4e4; font-size: 1rem; margin-top:8px;}
+    .btn-add { background: #18b951; color: #fff; border: none; padding: 8px 18px; border-radius: 8px; margin: 12px 0 0 0; cursor: pointer; font-weight: bold;}
+    .btn-add:disabled { background: #bbb; }
+    .btn-remove { background: #e13232; color: #fff; border: none; padding: 3px 11px; border-radius: 6px; margin-left: 10px; font-size: .9rem; cursor: pointer;}
+    .cart-section { background: #f7fff6; border-radius: 16px; margin-top: 38px; padding: 22px; box-shadow: 0 2px 8px #e4e4e4;}
+    .cart-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;}
+    .cart-list { margin: 0 0 8px 0; }
+    .cart-item { font-size: 1.15rem; margin: 8px 0; display: flex; align-items: center;}
+    .cart-item select, .cart-item input { margin: 0 8px;}
+    .cart-sum { color: #e12d2d; font-size: 1.25rem; font-weight: bold; text-align:right;}
+    .btn-copy { background: #ffd797; color: #8d5a00; border: none; padding: 6px 14px; border-radius: 7px; font-weight: bold; margin-left: 10px; cursor: pointer;}
+    .pay-section { margin-top: 36px; background: #eaffea; border-radius: 16px; padding: 14px 10px; text-align: center;}
+    .pay-number { color: #178046; font-size: 1.13rem; font-weight: bold;}
+    .pay-name { color: #178046;}
+    .pay-total { color: #067911; font-size: 1.1rem; font-weight: bold;}
+    .form-section { margin-top: 18px; background: #e3eafd; border-radius: 15px; padding: 14px;}
+    .form-link-btn { background: #e12d2d; color: #fff; font-weight: bold; border: none; border-radius: 9px; font-size: 1.1rem; padding: 10px 22px; margin: 16px 0 20px 0; cursor: pointer;}
+    .summary-box {background: #fff7e7; border-radius: 14px; margin-top: 10px; padding: 18px 20px; font-size: 1.1rem;}
+    @media (max-width: 1100px){
+      .products { grid-template-columns: repeat(2,1fr);}
     }
-    .container {
-      max-width: 1050px;
-      margin: 36px auto;
-      background: #fff;
-      border-radius: 18px;
-      padding: 30px 50px 40px 50px;
-      box-shadow: 0 3px 16px #e2e2e2;
-    }
-    h1 {
-      font-size: 2.2rem;
-      color: #222;
-      text-align: center;
-      margin-top: 0;
-    }
-    .alert {
-      background: #fff2f2;
-      color: #d42323;
-      padding: 18px 0 6px 0;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      border-radius: 18px;
-      margin-bottom: 20px;
-    }
-    .desc {
-      text-align: center;
-      color: #f00;
-      font-size: 1.05rem;
-      margin-bottom: 18px;
-      margin-top: -16px;
-      font-weight: bold;
-    }
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px 24px;
-      justify-content: flex-start;
-      margin-bottom: 34px;
-    }
-    .card {
-      background: #f7f8fa;
-      border-radius: 12px;
-      box-shadow: 0 1px 6px #d8d8d8;
-      padding: 18px 10px 20px 10px;
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .card img {
-      border-radius: 8px;
-      width: 200px;
-      height: 300px;
-      object-fit: cover;
-      margin-bottom: 8px;
-      box-shadow: 0 2px 10px #ececec;
-    }
-    .card .name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-align: center;
-      margin: 4px 0 3px 0;
-      color: #262626;
-      min-height: 42px;
-    }
-    .card .price {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #fa6400;
-      margin-bottom: 8px;
-      margin-top: 1px;
-    }
-    .card select, .card input[type='number'] {
-      margin-bottom: 7px;
-      width: 95%;
-      border-radius: 7px;
-      border: 1px solid #dedede;
-      padding: 5px 7px;
-      font-size: 1rem;
-    }
-    .card button {
-      background: #0aa85a;
-      color: #fff;
-      border: none;
-      border-radius: 7px;
-      padding: 7px 16px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-      margin-top: 5px;
-    }
-    .card button:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-    .cart {
-      background: #fff8ec;
-      border-radius: 18px;
-      padding: 22px 24px 16px 24px;
-      margin-bottom: 25px;
-      border: 1.2px solid #fae0c0;
-      box-shadow: 0 2px 8px #f7d5b0;
-    }
-    .cart-title {
-      font-size: 1.18rem;
-      font-weight: bold;
-      color: #d18800;
-      margin-bottom: 15px;
-    }
-    .cart-list {
-      font-size: 1.05rem;
-      margin-bottom: 14px;
-    }
-    .cart-list li {
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .cart-actions {
-      display: flex;
-      gap: 7px;
-    }
-    .cart-actions button {
-      background: #ed2222;
-      border: none;
-      color: #fff;
-      padding: 1px 9px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.05rem;
-      margin-left: 5px;
-    }
-    .total {
-      font-size: 1.25rem;
-      font-weight: bold;
-      text-align: right;
-      color: #009f3b;
-      margin-bottom: 10px;
-    }
-    .confirm-section {
-      background: #e7fff4;
-      border-radius: 16px;
-      padding: 19px 30px;
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 1.13rem;
-    }
-    .confirm-section .copy-btn {
-      margin-left: 10px;
-      background: #ff9000;
-      color: #fff;
-      border: none;
-      border-radius: 7px;
-      padding: 4px 13px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .red-btn {
-      background: #e33434 !important;
-      color: #fff !important;
-      font-weight: 600 !important;
-      border-radius: 8px !important;
-      padding: 9px 20px !important;
-      font-size: 1.13rem !important;
-      border: none !important;
-      margin-bottom: 10px !important;
-      margin-top: 5px;
-      cursor: pointer;
-      transition: background 0.17s;
-      box-shadow: 0 1px 5px #f3b6b6;
-    }
-    .order-copy {
-      margin: 0 auto 10px auto;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 10px;
-      background: #f7f9fc;
-      border-radius: 12px;
-      padding: 15px 18px 10px 18px;
-      width: fit-content;
-      box-shadow: 0 1px 7px #e0e7ef;
-    }
-    textarea.order-detail {
-      font-family: 'Kanit', Arial, sans-serif;
-      font-size: 1.03rem;
-      background: #fff;
-      border-radius: 9px;
-      border: 1.1px solid #ececec;
-      width: 360px;
-      min-height: 70px;
-      resize: none;
-      padding: 10px 9px;
-      color: #3b3b3b;
-    }
-    .order-copy .copy-btn {
-      height: 43px;
-      margin-top: 1px;
-    }
-    @media (max-width: 1050px) {
-      .container { padding: 12px; }
-      .products { gap: 16px 7px; }
-      .card { width: 96vw; }
-      .order-copy { width: 92vw; }
+    @media (max-width: 700px){
+      .container{padding: 6px;}
+      .products{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="alert">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
-    <div class="desc">* ทุกออเดอร์ลด 30% ทันที!</div>
-    <h1>Pre-Order for Fansign</h1>
-    <div class="products" id="products"></div>
-    
-    <div class="cart" id="cart" style="display:none;">
-      <div class="cart-title">สรุปรายการสั่งซื้อ</div>
-      <ul class="cart-list" id="cart-list"></ul>
-      <div class="total" id="total"></div>
+<div class="container">
+  <div class="star-note">* สินค้าทุกออเดอร์ลด 30% *</div>
+  <div class="red-note">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
+  <h1>Pre-Order for Fansign</h1>
+
+  <!-- สินค้า -->
+  <div class="products" id="products"></div>
+
+  <!-- ตะกร้า -->
+  <div class="cart-section" id="cartSection" style="display:none;">
+    <div class="cart-title">สรุปรายการสั่งซื้อ</div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-sum" id="cartSum"></div>
+    <button class="btn-copy" onclick="copyOrderSummary()">Copy รายการ</button>
+  </div>
+
+  <!-- พร้อมเพย์ -->
+  <div class="pay-section" id="paySection" style="display:none;">
+    <div class="pay-number">พร้อมเพย์: <b id="ppNum">0917567358</b> <button class="btn-copy" onclick="copyText('0917567358')">Copy</button></div>
+    <div class="pay-name">Kanyarat Nuchanart</div>
+    <div class="pay-total" id="payTotal"></div>
+  </div>
+
+  <!-- แจ้งเตือนฟอร์ม -->
+  <div class="form-section" id="formSection" style="display:none;">
+    <div>
+      👉 เมื่อโอนแล้ว <a href="https://forms.gle/rs8wSC7psGdwheE39" class="form-link-btn" target="_blank">กรอกฟอร์มยืนยันโอนเงินที่นี่</a>
     </div>
-    
-    <div class="confirm-section" id="confirmSection" style="display:none;">
-      <div style="color:#13895b;font-weight:bold;">
-        พร้อมเพย์: <span id="ppay" style="font-size:1.19rem;">0917567358</span>
-        <button class="copy-btn" onclick="copyPromptpay()">Copy</button><br>
-        Kanyarat Nuchanart
-      </div>
-      <div style="color:#ea2424;font-size:1.23rem;margin:12px 0 7px 0;font-weight:bold;">
-        สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์
-      </div>
-      <a href="https://forms.gle/rs8wSC7psGdwheE39" target="_blank" class="red-btn">กรอกฟอร์มยืนยันโอนเงินที่นี่</a>
-      <div class="order-copy">
-        <textarea class="order-detail" id="orderDetail" readonly></textarea>
-        <button class="copy-btn" onclick="copyOrder()">Copy รายการ</button>
-      </div>
+    <textarea id="orderSummaryBox" style="width:95%;margin-top:10px;height:80px;background:#fff7ee;border-radius:9px;padding:8px;font-size:1rem"></textarea>
+    <div style="margin-top:10px;">
+      <button class="btn-copy" onclick="copyOrderSummary()">Copy รายการ</button>
     </div>
   </div>
-  <script>
-    // --- Full Artists List ---
-    const gmmtvArtists = [
-      "Krist Perawat","Singto Prachaya","Off Jumpol","Gun Atthaphan","Tay Tawan","New Thitipoom","Earth Pirapat","Mix Sahaphap","Book Kasidet","Force Jiratchapong","Joong Archen","Dunk Natachai","Gemini Norawit","Fourth Nattawat","Winny Thanawin","Satang Kittiphop","Pond Naravit","Phuwin Tangsakyuen","Jimmy Jitaraphol","Sea Tawinan","Louis Thanawin","Mark Pakin","Mike Chinnarat","Aou Thanaboon","Boom Tham","Pepper Phanuroj","Fluke Pusit","Noon Siritorn","Euro Yotsawat","Prame Pumipat","Poom Patadon","Boss Chaikamon",
-      "Mook Worranit","View Benyapa","June Wanwimol","Fah Yongwaree","Prim Chanikarn","Namtan Tipnaree","Aye Sarunchana","Mook Monchanok","Ciize Apichaya","Foei Patara","Love Pattranite","Film Rachanun","Earn Preeyaphat","Piploy Kanyarat","Aom Sushar","Pim Pimprapa","Benz Natthida","Pimnitcha","Ticha Wongthipkanon",
-      "KristSingto","OffGun","TayNew","EarthMix","BookForce","JoongDunk","GeminiFourth","WinnySatang","PondPhuwin","JimmySea",
-      "FahPrim","LoveFilm","NamtanFilm","JuneView","AyeCiize","EarnPiploy","MookMook",
-      "KristMook","WinnyPrim","GeminiPrim","GunFah","OffNamtan","TayCiize","EarthPim","MixLove","BookFilm","ForceAye",
-      "Sizzy","LYKN","KAZZ Magazine","TRINITY","Girl Next Door","The Gifted","Safe House","Friend Zone"
-    ];
+</div>
 
-    // --- ตัวอย่างสินค้า (แก้/เพิ่ม/ลบได้ตามรูป) ---
-    const products = [
-      { id: 1, name: "That Summer Novel", price: 315, image: "images/that_summer.jpg" },
-      { id: 2, name: "Burnout Syndrome Novel", price: 315, image: "images/burnout.jpg" },
-      { id: 3, name: "Last Twilight Novel", price: 315, image: "images/last_twilight.jpg" },
-      { id: 4, name: "Thamepo Heart Novel", price: 345, image: "images/thamepo.jpg" },
-      { id: 5, name: "Ceri Doll Keychain", price: 555, image: "images/ceri_doll_keychain.jpg" },
-      { id: 6, name: "Nilkhnake Doll Keychain", price: 555, image: "images/nilkhnake_doll_keychain.jpg" },
-      { id: 7, name: "Collectible Card Set", price: 210, image: "images/collectible_card_set.jpg", artists: ["ALMONDPROGRESS", "VIEWMIM", "JUNEMEWNICH"] },
-      { id: 8, name: "Customizable Acrylic Keychain", price: 245, image: "images/acrylic_keychain.jpg", artists: gmmtvArtists },
-      { id: 9, name: "Fandom Phone Grippy (Random)", price: 203, image: "images/phone_grippy.jpg", grippyBox: ["A", "B"], artists: [
-        // รวมชื่อทั้งหมด (ตัวอย่าง, ใส่ชื่อตาม box A/B ได้)
-        "Babi","Pokchan","Paddy","Tomayok","Jadee","Avocani","Samuray","Domia","Jjamo","Gunzy","Ceri","Mavvy","Lunai","Any",
-        "King Man","Mr. Saturnworld","Pernpoon","Yuzu Mumu","Look Khunkoo","Nong Noknok","Angelo","Wesley","Momo","Meta","Nilkhnake","Bayle","Nigma","Lykov"
-      ]},
-      { id: 10, name: "Magsafe Wallet Stand", price: 345, image: "images/magsafe_wallet.jpg", artists: gmmtvArtists },
-      { id: 11, name: "Sticker Set", price: 155, image: "images/sticker_set.jpg", artists: gmmtvArtists },
-      { id: 12, name: "Hair Band", price: 345, image: "images/hair_band.jpg", artists: gmmtvArtists },
-      { id: 13, name: "Huggy Bag", price: 415, image: "images/huggy_bag.jpg", artists: gmmtvArtists },
-      { id: 14, name: "Collectible Card Album", price: 210, image: "images/card_album.jpg", artists: gmmtvArtists },
-      { id: 15, name: "Sticky Fabric", price: 205, image: "images/sticky_fabric.jpg", artists: gmmtvArtists },
-      { id: 16, name: "Clear Pouch", price: 245, image: "images/clear_pouch.jpg", artists: gmmtvArtists },
-      { id: 17, name: "Charm Illusion Tote Bag", price: 625, image: "images/charm_illusion_tote.jpg" },
-      { id: 18, name: "Patchy Illusion Tote Bag", price: 625, image: "images/patchy_illusion_tote.jpg" }
-    ];
+<script>
+// ศิลปินทั้งหมด GMMTV 2024 (อัปเดตเฉพาะในโปสเตอร์ที่เลือกได้)
+const ARTISTS_BOYS = [
+  "GEMINI", "FOURTH", "WIN", "SATANG", "MARK", "PAKRON", "NEO", "LOUIS",
+  "YIN", "WAR", "SEA", "BOMB", "BOOM", "JOONG", "DUNK", "JIMMY", "SEA", "MIKE",
+  "TAY", "NEW", "OFF", "GUN", "TAY", "Tae", "LEE", "PUP", "NATT", "OHM", "NANON", "PERTH", "MEW", "PODD", "PATRICK", "AJ", "JJ", "ARM", "LAY", "FORD", "FLUKE", "PATT", "SING", "PIP", "PRAME"
+];
+const ARTISTS_GIRLS = [
+  "NAMTAN", "FILM", "FON", "ANGIE", "AYE", "MILK", "JUNÉ", "VIEW", "BEBE", "PRIGKENG", "KHWAENG", "CHRIS", "BAM", "LOOKWA", "AM", "EARN", "NANA", "PRIM", "ALICE", "BONNIE"
+];
+// คู่จิ้น/ศิลปินคู่ (เฉพาะกลุ่มสินค้า Card/Keychain)
+const ARTISTS_BOY_COUPLE = [
+  "GEMINI/FOURTH", "WIN/SATANG", "NEO/LOUIS", "JOONG/DUNK", "YIN/WAR",
+  "OFF/GUN", "TAY/NEW", "JIMMY/SEA", "OHM/NANON", "PODD/PATRICK", "AJ/JJ"
+];
+const ARTISTS_GIRL_COUPLE = [
+  "MILK/LOVE", "NAMTAN/FILM", "BEBE/BONNIE", "PRIM/JUNE", "JUNÉ/VIEW"
+];
+// มาสคอต/คาแรคเตอร์
+const CHARACTERS = [
+  "DOMGA", "GUNGLY", "CERI", "AVOCAN", "SAMUAY", "JAMOO", "LUNAR", "ANY", "POGASAN", "PADDY", "JADDEE", "KING MAN", "MR. SATURNWORLD", "PEMPOM", "YUZU MUMU", "LOOK KHUNMOO", "NONG NOODOO", "ANGELO", "WESLEY", "MOAD", "META", "NILKHNAKE", "SMYLE", "NEONA", "LYKYOU"
+];
 
-    // --- DOM Render สินค้า ---
-    const productsDiv = document.getElementById("products");
-    let cart = [];
+// Products
+const PRODUCTS = [
+  // ----------------- นิยาย -----------------
+  {
+    id: "that_summer",
+    title: "That Summer (นิยาย)",
+    price: 450,
+    image: "images/that_summer.jpg"
+  },
+  {
+    id: "burnout",
+    title: "Burnout Syndrome (นิยาย)",
+    price: 450,
+    image: "images/burnout.jpg"
+  },
+  {
+    id: "last_twilight",
+    title: "Last Twilight (นิยาย)",
+    price: 450,
+    image: "images/last_twilight.jpg"
+  },
+  {
+    id: "thamepo",
+    title: "Thamepo (Heart That Skips a Beat Novel)",
+    price: 490,
+    image: "images/thamepo.jpg"
+  },
+  // ----------------- Doll Keychain -----------------
+  {
+    id: "ceri_doll_keychain",
+    title: "Ceri Doll Keychain",
+    price: 790,
+    image: "images/ceri_doll_keychain.jpg"
+  },
+  {
+    id: "nilkhnake_doll_keychain",
+    title: "Nilkhnake Doll Keychain",
+    price: 790,
+    image: "images/nilkhnake_doll_keychain.jpg"
+  },
+  // ----------------- Card (set/random) -----------------
+  {
+    id: "collectible_card_set",
+    title: "Collectible Card Set",
+    price: 350,
+    image: "images/collectible_card_set.jpg",
+    select: ["ALMONDPROGRESS", "VIEWMIM", "JUNEMEWNICH"]
+  },
+  {
+    id: "collectible_card_album",
+    title: "Collectible Card Album",
+    price: 300,
+    image: "images/card_album.jpg",
+    select: [
+      "KING MAN", "BABI", "POGASAN", "MR. SATURNWORLD", "PADDY", "TOMAYOK", "JAIDEE", "AVOCAN", "SAMUAY", "JAMOO", "GUNGLY", "CERI", "MILKYWAY", "LUNAR", "ANY", "ALMONDPROGRESS", "MUUYE", "AMY", "META", "NILKHNAKE", "LYKYOU"
+    ]
+  },
+  {
+    id: "collectible_card_boy_random",
+    title: "BOYS: Collectible Random Cards",
+    price: 200,
+    image: "images/collectible_card_set.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_BOY_COUPLE)
+  },
+  {
+    id: "collectible_card_girl_random",
+    title: "GIRLS: Collectible Random Cards",
+    price: 200,
+    image: "images/collectible_card_set.jpg",
+    select: ARTISTS_GIRLS.concat(ARTISTS_GIRL_COUPLE)
+  },
+  // ----------------- Acrylic Keychain -----------------
+  {
+    id: "acrylic_keychain",
+    title: "Customizable Acrylic Keychain",
+    price: 350,
+    image: "images/acrylic_keychai.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, ARTISTS_BOY_COUPLE, ARTISTS_GIRL_COUPLE, CHARACTERS)
+  },
+  // ----------------- Phone Grippy -----------------
+  {
+    id: "phone_grippy",
+    title: "Fandom Phone Grippy (Random)",
+    price: 290,
+    image: "images/phone_grippy.jpg",
+    select: [
+      { box: "A", names: ["BABI", "POGASAN", "PADDY", "TOMAYOK", "JAIDEE", "AVOCAN", "SAMUAY", "DOMGA", "JAMOO", "GUNGLY", "CERI", "MILKYWAY", "LUNAR", "ANY"] },
+      { box: "B", names: ["KING MAN", "MR. SATURNWORLD", "PEMPOM", "YUZU MUMU", "LOOK KHUNMOO", "NONG NOODOO", "ANGELO", "WESLEY", "MOAD", "META", "NILKHNAKE", "SMYLE", "NEONA", "LYKYOU"] }
+    ]
+  },
+  // ----------------- MagSafe/Sticker/Hairband/Huggy Bag -----------------
+  {
+    id: "magsafe_wallet",
+    title: "Magsafe Wallet Stand",
+    price: 490,
+    image: "images/magsafe_wallet.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS)
+  },
+  {
+    id: "sticker_set",
+    title: "Sticker Set",
+    price: 220,
+    image: "images/sticker_set.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
+  },
+  {
+    id: "hair_band",
+    title: "Hair Band",
+    price: 490,
+    image: "images/hair_band.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
+  },
+  {
+    id: "huggy_bag",
+    title: "Huggy Bag",
+    price: 590,
+    image: "images/huggy_bag.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
+  },
+  // ----------------- Sticky/Clear Pouch -----------------
+  {
+    id: "sticky_fabric",
+    title: "Sticky Fabric",
+    price: 390,
+    image: "images/sticky_fabric.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
+  },
+  {
+    id: "clear_pouch",
+    title: "Clear Pouch",
+    price: 350,
+    image: "images/clear_pouch.jpg",
+    select: ARTISTS_BOYS.concat(ARTISTS_GIRLS, CHARACTERS)
+  },
+  // ----------------- Tote Bag -----------------
+  {
+    id: "charm_illusion_tote",
+    title: "Fandom Character Charm Illusion Tote Bag",
+    price: 890,
+    image: "images/charm_illusion_tote.jpg"
+  },
+  {
+    id: "patchy_illusion_tote",
+    title: "Fandom Character Patchy Illusion Tote Bag",
+    price: 890,
+    image: "images/patchy_illusion_tote.jpg"
+  }
+];
 
-    function renderProducts() {
-      productsDiv.innerHTML = "";
-      products.forEach((p, idx) => {
-        let artistOpt = "";
-        if (p.artists) {
-          artistOpt = `<select id="artist-${p.id}">
-              <option value="">เลือกศิลปิน/คู่/กลุ่ม</option>
-              ${p.artists.map(a => `<option value="${a}">${a}</option>`).join('')}
-            </select>`;
-        } else if (p.grippyBox) {
-          artistOpt = `
-            <select id="grippyBox-${p.id}" style="margin-bottom:7px;">
-              <option value="">เลือก Box</option>
-              ${p.grippyBox.map(box => `<option value="${box}">Box ${box}</option>`).join('')}
-            </select>
-            <select id="artist-${p.id}">
-              <option value="">เลือกคาแรกเตอร์</option>
-              ${p.artists.map(a => `<option value="${a}">${a}</option>`).join('')}
-            </select>
-          `;
-        }
-        productsDiv.innerHTML += `
-          <div class="card" id="card-${p.id}">
-            <img src="${p.image}" alt="${p.name}">
-            <div class="name">${p.name}</div>
-            <div class="price">${p.price}฿</div>
-            ${artistOpt || ""}
-            <button id="addBtn-${p.id}" onclick="addToCart(${p.id})">+ เพิ่ม</button>
-          </div>
+// ----- ตะกร้า (cart) -----
+let cart = [];
+
+// Render Products
+function renderProducts(){
+  const container = document.getElementById('products');
+  container.innerHTML = '';
+  PRODUCTS.forEach(prod => {
+    let prodSelect = '';
+    // ถ้ามี select (เลือกศิลปิน/มาสคอต)
+    if(prod.select){
+      if(prod.id === "phone_grippy"){ // Special for phone_grippy
+        prodSelect = `
+          <select id="select_${prod.id}_box" style="margin-top:10px;width:60%;" onchange="updateBoxDropdown('${prod.id}')">
+            <option value="">เลือกกล่อง</option>
+            <option value="A">BOX A</option>
+            <option value="B">BOX B</option>
+          </select>
+          <select id="select_${prod.id}_name" style="margin-top:10px;width:80%;">
+            <option value="">เลือกศิลปิน/มาสคอต</option>
+          </select>
         `;
-      });
-    }
-
-    function addToCart(id) {
-      const p = products.find(x => x.id === id);
-      let artist = "";
-      let grippyBox = "";
-
-      // Check for artist selection if exists
-      if (p.artists) {
-        const sel = document.getElementById("artist-"+p.id);
-        if (sel && !sel.value) return alert("กรุณาเลือกศิลปิน/คู่/กลุ่ม");
-        artist = sel ? sel.value : "";
-      }
-      if (p.grippyBox) {
-        const selBox = document.getElementById("grippyBox-"+p.id);
-        if (selBox && !selBox.value) return alert("เลือก Box ก่อน");
-        grippyBox = selBox ? selBox.value : "";
-        const sel = document.getElementById("artist-"+p.id);
-        if (sel && !sel.value) return alert("เลือกคาแรกเตอร์");
-        artist = sel.value;
-      }
-      // ตรวจสอบซ้ำ
-      const foundIdx = cart.findIndex(item => item.id===id && item.artist===artist && item.grippyBox===grippyBox);
-      if (foundIdx > -1) {
-        cart[foundIdx].qty++;
-      } else {
-        cart.push({ id, name: p.name, price: p.price, qty: 1, artist, grippyBox });
-      }
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartDiv = document.getElementById("cart");
-      const cartList = document.getElementById("cart-list");
-      const totalDiv = document.getElementById("total");
-      cartDiv.style.display = cart.length ? "block" : "none";
-      if (!cart.length) {
-        document.getElementById("confirmSection").style.display = "none";
-        return;
-      }
-      let total = 0;
-      cartList.innerHTML = "";
-      cart.forEach((item, idx) => {
-        const title = `${item.name}${item.grippyBox ? " (Box "+item.grippyBox+")":""}${item.artist ? " ("+item.artist+")":""}`;
-        cartList.innerHTML += `
-          <li>
-            <span>${title} x ${item.qty} = ${(item.price*item.qty).toLocaleString()} บาท</span>
-            <span class="cart-actions">
-              <button onclick="changeQty(${idx},-1)">-</button>
-              <button onclick="changeQty(${idx},1)">+</button>
-              <button onclick="removeItem(${idx})">&times;</button>
-            </span>
-          </li>
+      }else{
+        prodSelect = `
+          <select id="select_${prod.id}" style="margin-top:10px;width:95%;">
+            <option value="">เลือกศิลปิน/คู่/มาสคอต</option>
+            ${prod.select.map(a=>`<option value="${a}">${a}</option>`).join("")}
+          </select>
         `;
-        total += item.price * item.qty;
-      });
-      totalDiv.innerHTML = `รวมทั้งหมด: <span style="color:#d42323;">${total.toLocaleString()}</span> บาท`;
-      // Render confirm section
-      renderConfirmSection(total);
+      }
     }
-    function changeQty(idx, delta) {
-      cart[idx].qty += delta;
-      if (cart[idx].qty <= 0) cart.splice(idx,1);
-      renderCart();
-    }
-    function removeItem(idx) {
-      cart.splice(idx,1);
-      renderCart();
-    }
+    container.innerHTML += `
+      <div class="product-card">
+        <img src="${prod.image}" alt="${prod.title}">
+        <div class="prod-title">${prod.title}</div>
+        <div class="prod-price">${prod.price}฿</div>
+        ${prodSelect || ""}
+        <button class="btn-add" onclick="addToCart('${prod.id}')">เพิ่ม</button>
+      </div>
+    `;
+  });
+}
+window.onload = renderProducts;
 
-    function renderConfirmSection(total) {
-      const cs = document.getElementById("confirmSection");
-      cs.style.display = "block";
-      document.getElementById("orderDetail").value = cart.map(item =>
-        `${item.name}${item.grippyBox?" (Box "+item.grippyBox+")":""}${item.artist?" ("+item.artist+")":""} x ${item.qty} = ${(item.price*item.qty).toLocaleString()} บาท`
-      ).join('\n') + `\nรวมทั้งหมด: ${total.toLocaleString()} บาท`;
-      document.getElementById("ppay").textContent = "0917567358";
-    }
-    function copyPromptpay() {
-      navigator.clipboard.writeText("0917567358");
-      alert("คัดลอกเบอร์พร้อมเพย์แล้ว!");
-    }
-    function copyOrder() {
-      const txt = document.getElementById("orderDetail").value;
-      navigator.clipboard.writeText(txt);
-      alert("คัดลอกข้อความเรียบร้อย! นำไปวางในฟอร์มยืนยันได้เลย");
-    }
+// Special: dropdown เปลี่ยน box -> ชื่อใน box
+function updateBoxDropdown(pid){
+  const boxVal = document.getElementById(`select_${pid}_box`).value;
+  const nameSelect = document.getElementById(`select_${pid}_name`);
+  nameSelect.innerHTML = `<option value="">เลือกศิลปิน/มาสคอต</option>`;
+  if(!boxVal) return;
+  const prod = PRODUCTS.find(x=>x.id===pid);
+  const group = prod.select.find(x=>x.box===boxVal);
+  if(group){
+    nameSelect.innerHTML += group.names.map(a=>`<option value="${a}">${a}</option>`).join("");
+  }
+}
 
-    renderProducts();
-  </script>
+// เพิ่มสินค้าในตะกร้า
+function addToCart(pid){
+  const prod = PRODUCTS.find(x=>x.id===pid);
+  let selectVal = "";
+  if(prod.select){
+    if(prod.id === "phone_grippy"){
+      let boxVal = document.getElementById(`select_${pid}_box`).value;
+      let nameVal = document.getElementById(`select_${pid}_name`).value;
+      if(!boxVal || !nameVal){ alert("กรุณาเลือกกล่องและชื่อมาสคอต"); return;}
+      selectVal = `${boxVal}: ${nameVal}`;
+    }else{
+      selectVal = document.getElementById(`select_${pid}`).value;
+      if(!selectVal){ alert("กรุณาเลือกศิลปิน/คู่/มาสคอต"); return;}
+    }
+  }
+  // ตรวจใน cart ซ้ำ
+  const same = cart.find(x=>x.id===pid && x.option===selectVal);
+  if(same){
+    same.qty += 1;
+  }else{
+    cart.push({id:pid, name:prod.title, price:prod.price, option:selectVal, qty:1});
+  }
+  renderCart();
+}
+
+// Render Cart
+function renderCart(){
+  const cartList = document.getElementById("cartList");
+  const cartSection = document.getElementById("cartSection");
+  const paySection = document.getElementById("paySection");
+  const formSection = document.getElementById("formSection");
+  cartSection.style.display = cart.length ? "" : "none";
+  paySection.style.display = cart.length ? "" : "none";
+  formSection.style.display = cart.length ? "" : "none";
+  if(!cart.length) return;
+  cartList.innerHTML = '';
+  let sum = 0;
+  cart.forEach((item,i)=>{
+    sum += item.price * item.qty;
+    cartList.innerHTML += `
+      <div class="cart-item">
+        ${item.name}${item.option?` <span style="color:#178046;">(${item.option})</span>`:""} 
+        &nbsp; x <input type="number" min="1" max="99" value="${item.qty}" style="width:40px" onchange="updateQty(${i},this.value)">
+        <span style="color:#e13232;font-weight:bold;">= ${item.price*item.qty}฿</span>
+        <button class="btn-remove" onclick="removeCart(${i})">ลบ</button>
+      </div>
+    `;
+  });
+  document.getElementById("cartSum").innerHTML = `รวมทั้งหมด: ${sum} บาท`;
+  document.getElementById("payTotal").innerHTML = `ยอดที่ต้องโอน: ${sum} บาท`;
+  document.getElementById("orderSummaryBox").value = cart.map(item=>{
+    return `${item.name}${item.option?` (${item.option})`:""} x ${item.qty} = ${item.price*item.qty} บาท`;
+  }).join('\n') + `\nรวมทั้งหมด: ${sum} บาท`;
+}
+
+// อัปเดตจำนวน
+function updateQty(idx, val){
+  let v = parseInt(val);
+  if(isNaN(v)||v<1) v=1;
+  cart[idx].qty = v;
+  renderCart();
+}
+// ลบ
+function removeCart(idx){
+  cart.splice(idx,1);
+  renderCart();
+}
+// Copy function
+function copyOrderSummary(){
+  const t = document.getElementById("orderSummaryBox");
+  t.select(); t.setSelectionRange(0,9999);
+  document.execCommand('copy');
+}
+function copyText(text){
+  navigator.clipboard.writeText(text);
+}
+</script>
 </body>
 </html>
