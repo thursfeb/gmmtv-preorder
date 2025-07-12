@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>GMMTV SHOP Preorder</title>
+  <title>Pre-Order for Fansign</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -12,79 +12,101 @@
       color: #222;
       margin: 0;
     }
+    .star-note {
+      color: #e53935;
+      font-size: 1.45rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1.3rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 1.5px;
+    }
+    .discount-note {
+      color: #cc1a00;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.5rem 0 0.1rem 0;
+      text-align: center;
+      letter-spacing: 1.5px;
+    }
     header {
       background: #fff;
       border-bottom: 1.5px solid #e2e2e2;
-      padding: 1.8rem 1rem 1rem 1rem;
+      padding: 1.7rem 1rem 1.2rem 1rem;
       text-align: center;
       box-shadow: 0 2px 8px 0 rgba(70,70,70,0.04);
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       margin: 0;
       letter-spacing: 1.5px;
-      color: #2b7361;
+      color: #214c3f;
+      font-weight: 700;
     }
     .container {
-      max-width: 980px;
-      margin: 2.5rem auto;
+      max-width: 1200px;
+      margin: 2.3rem auto 2rem auto;
       background: #fff;
-      border-radius: 1.7rem;
+      border-radius: 1.5rem;
       box-shadow: 0 8px 30px 0 #0001;
-      padding: 2.4rem 2.3rem 1.5rem;
+      padding: 2.7rem 2.3rem 1.7rem;
     }
     h2 { text-align: left; margin-top:0;font-size:1.32rem;letter-spacing:.8px;}
     .product-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem 1.6rem;
-      margin: 1.5rem 0 2rem;
+      gap: 2.1rem 2rem;
+      margin: 1.3rem 0 2rem;
     }
     .product-card {
       background: #f7f9fa;
       border-radius: 1.1rem;
       box-shadow: 0 1px 6px #0001;
-      padding: .8rem .7rem 1.1rem;
+      padding: 1.2rem 1rem 1.2rem;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
-      min-height: 320px;
+      min-height: 420px;
       transition:.2s;
       position:relative;
     }
     .product-card img {
-      max-width: 110px; max-height: 110px;
-      border-radius: .8rem;
-      margin-bottom:1rem;
+      width: 500px;
+      height: 500px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 1.1rem;
+      margin-bottom: 1.2rem;
       background: #fff;
       box-shadow: 0 0 7px #2221;
-      object-fit: cover;
       border: 1.5px solid #e5e5e5;
+      transition: .2s;
     }
     .product-card h3 {
-      font-size: 1.1rem;
-      margin: 0 0 .15rem;
+      font-size: 1.09rem;
+      margin: 0 0 .13rem;
       font-weight: 600;
-      color: #20493a;
+      color: #184032;
     }
     .product-card .price {
       color: #ea7d00;
       font-weight: bold;
-      font-size: 1.14rem;
+      font-size: 1.11rem;
       margin-bottom: .8rem;
     }
     .product-card input[type=number] {
-      width: 54px;
+      width: 60px;
       font-size: 1rem;
       border-radius: 7px;
       border: 1px solid #bbb;
-      padding: 3px 8px;
+      padding: 3px 10px;
       margin-top:.1rem;
     }
     .cart-box {
       background: #f3f6f5;
       border-radius: 1.3rem;
-      margin: 2.3rem 0 1.7rem;
-      padding: 1.4rem 1.7rem .8rem;
+      margin: 2.1rem 0 1.6rem;
+      padding: 1.6rem 1.6rem .7rem;
       box-shadow: 0 0 12px 0 #0001;
     }
     .cart-summary {
@@ -97,12 +119,12 @@
     .btn-main {
       background: linear-gradient(90deg, #2fc7b2, #256d4c);
       color: #fff;
-      font-size: 1.12rem;
+      font-size: 1.13rem;
       font-weight: 600;
       border: none;
       border-radius: 1.2rem;
-      padding: .9rem 2.2rem;
-      margin: 1.3rem auto .3rem;
+      padding: .85rem 2.6rem;
+      margin: 1.2rem auto .3rem;
       display: block;
       cursor: pointer;
       box-shadow: 0 2px 8px #28ad7366;
@@ -110,35 +132,48 @@
     }
     .btn-main:active { filter: brightness(.95);}
     #paymentSection {
-      padding: 1.8rem 0 .5rem 0;
+      padding: 2rem 0 .5rem 0;
     }
     #qrcode {
       display: block;
-      margin: 1.5rem auto 1rem;
+      margin: 1.6rem auto 1.1rem;
       border-radius: 1rem;
       box-shadow: 0 2px 6px #0002;
-      max-width: 140px;
+      max-width: 160px;
     }
     .pay-detail {
       text-align: center;
       color: #176842;
       font-weight: bold;
-      margin: .8rem 0 1.4rem;
-      font-size: 1.18rem;
+      margin: .7rem 0 1.4rem;
+      font-size: 1.19rem;
       background: #eaf7f1;
       border-radius: 0.8rem;
-      padding: .9rem 0 .7rem 0;
+      padding: 1rem 0 .7rem 0;
       border:1px solid #c8ecd6;
     }
-    form label { font-size: 1rem; color: #2d6b58;}
-    .form-group { margin-bottom: 1.6rem;}
+    .warn-nocoupon {
+      background: #fff0ef;
+      border-left: 7px solid #e53935;
+      color: #c0241c;
+      font-size: 1.26rem;
+      border-radius: 1.1rem;
+      padding: 1.1rem 1.2rem .8rem;
+      margin-bottom: 1.6rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: .7px;
+      margin-top: 0.9rem;
+    }
+    form label { font-size: 1.08rem; color: #295c48;}
+    .form-group { margin-bottom: 1.7rem;}
     input, textarea {
-      width: 100%; padding: 11px;
-      border-radius: 8px; border: 1px solid #b1b1b1;
+      width: 100%; padding: 12px;
+      border-radius: 9px; border: 1px solid #b1b1b1;
       font-size: 1rem; margin-top: 4px;
       background: #f5f5f7;
     }
-    textarea { min-height: 64px;}
+    textarea { min-height: 72px;}
     .success {
       background: #d3fae6;
       border-radius: 1.1rem;
@@ -149,14 +184,27 @@
       font-size:1.12rem;
       font-weight:500;
     }
+    /* --- Disable mobile responsive (desktop only) --- */
+    @media (max-width: 1100px) {
+      .container {max-width:98vw;padding:1rem;}
+      .product-card img {width:350px;height:350px;}
+    }
+    @media (max-width: 700px) {
+      body {overflow-x:auto;}
+      .container {min-width:1100px;}
+      .product-list {min-width:900px;}
+      .product-card img {width:320px;height:320px;}
+    }
   </style>
 </head>
 <body>
+  <div class="discount-note">* ลด 30% ทุกชิ้น</div>
   <header>
-    <h1>GMMTV SHOP PREORDER</h1>
-    <p>ลด 30% ทั้งร้าน! (เว้น Collectible Random Card)</p>
-    <p style="font-size:.99rem; color:#789;">Preorder by: <b>thursfeb</b></p>
+    <h1>Pre-Order for Fansign</h1>
   </header>
+  <div class="star-note warn-nocoupon">
+    สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์
+  </div>
   <div class="container">
     <h2>เลือกสินค้า</h2>
     <form id="orderForm" onsubmit="return false;">
@@ -174,7 +222,8 @@
         Kanyarat Nuchanart <br>
         ยอดที่ต้องโอน: <span id="totalPay">0</span> บาท
       </div>
-      <div style="text-align:center;margin-bottom:.9rem;">โอนแล้วกรอกฟอร์มยืนยันด้านล่าง</div>
+      <div class="warn-nocoupon" style="margin-top:.5rem;">สินค้าทั้งหมดที่ซื้อจะไม่ได้รับคูปองไซน์</div>
+      <div style="text-align:center;margin-bottom:1.2rem;">โอนแล้วกรอกฟอร์มยืนยันด้านล่าง</div>
       <form id="confirmForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeN9F0XtWjPGB2S5gQkTbXguyj6ZqlL1cTO6gT1TkskzR0t_g/formResponse" method="POST" target="_blank" enctype="multipart/form-data">
         <div class="form-group">
           <label>แนบสลิปโอนเงิน</label>
@@ -185,20 +234,16 @@
           <input name="entry.1234567890" required>
         </div>
         <div class="form-group">
-          <label>เบอร์โทร</label>
-          <input name="entry.2345678901" required>
-        </div>
-        <div class="form-group">
           <label>ที่อยู่สำหรับจัดส่ง</label>
           <textarea name="entry.3456789012" required></textarea>
         </div>
         <div class="form-group">
-          <label>Account X (ถ้ามี)</label>
-          <input name="entry.4567890123">
+          <label>เบอร์โทร</label>
+          <input name="entry.2345678901" required>
         </div>
         <div class="form-group">
-          <label>หมายเหตุ (ถ้ามี)</label>
-          <input name="entry.5678901234">
+          <label>Twitter Account (แมนดาทุรีฟิลด์)</label>
+          <input name="entry.5677777777" required placeholder="@username">
         </div>
         <input type="hidden" id="orderDetail" name="entry.6789012345">
         <button type="submit" class="btn-main">ส่งข้อมูลยืนยันโอน</button>
@@ -235,7 +280,7 @@
       products.forEach((p, i) => {
         html += `
           <div class="product-card">
-            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/110x110?text=No+Image';">
+            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/500x500?text=No+Image';">
             <h3>${p.name}</h3>
             <div class="price">${p.price} ฿</div>
             <input type="number" min="0" value="0" onchange="updateCart(${i}, this.value)">
