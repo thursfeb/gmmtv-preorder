@@ -8,104 +8,101 @@
   <style>
     body {
       font-family: 'Sarabun', sans-serif;
-      background: #fafafa;
-      color: #232323;
+      background: #f4f5f8;
+      color: #222;
       margin: 0;
-      min-height: 100vh;
     }
     header {
       background: #fff;
-      border-bottom: 1px solid #e7e7e7;
-      padding: 1.5rem 1rem 1rem 1rem;
+      border-bottom: 1.5px solid #e2e2e2;
+      padding: 1.8rem 1rem 1rem 1rem;
       text-align: center;
-      position: sticky; top: 0; z-index:10;
-      box-shadow: 0 2px 8px 0 rgba(80,80,80,0.04);
+      box-shadow: 0 2px 8px 0 rgba(70,70,70,0.04);
     }
     header h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin: 0;
-      letter-spacing: 2px;
-      color: #235c48;
+      letter-spacing: 1.5px;
+      color: #2b7361;
     }
-    header p { color: #555; font-size:1rem; margin:.4em 0 0;}
     .container {
-      max-width: 520px;
-      margin: 2rem auto;
+      max-width: 980px;
+      margin: 2.5rem auto;
       background: #fff;
-      border-radius: 1.8rem;
-      box-shadow: 0 4px 24px 0 #0001;
-      padding: 2.1rem 1.5rem 1.5rem;
+      border-radius: 1.7rem;
+      box-shadow: 0 8px 30px 0 #0001;
+      padding: 2.4rem 2.3rem 1.5rem;
     }
-    h2 { text-align: left; margin-top:0;font-size:1.3rem;letter-spacing:.8px;}
+    h2 { text-align: left; margin-top:0;font-size:1.32rem;letter-spacing:.8px;}
     .product-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.3rem 1.2rem;
-      margin: 1rem 0 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 1.6rem;
+      margin: 1.5rem 0 2rem;
     }
     .product-card {
-      background: #f8f8f8;
-      border-radius: 1rem;
+      background: #f7f9fa;
+      border-radius: 1.1rem;
       box-shadow: 0 1px 6px #0001;
-      padding: .7rem .7rem 1rem;
+      padding: .8rem .7rem 1.1rem;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
+      min-height: 320px;
       transition:.2s;
       position:relative;
-      min-height: 270px;
     }
     .product-card img {
-      max-width: 90px; max-height: 90px;
+      max-width: 110px; max-height: 110px;
       border-radius: .8rem;
-      margin-bottom:.6rem;
+      margin-bottom:1rem;
       background: #fff;
-      box-shadow: 0 0 4px #2221;
+      box-shadow: 0 0 7px #2221;
       object-fit: cover;
       border: 1.5px solid #e5e5e5;
     }
     .product-card h3 {
-      font-size: 1rem;
-      margin: 0 0 .1rem;
+      font-size: 1.1rem;
+      margin: 0 0 .15rem;
       font-weight: 600;
-      color: #1d4c34;
+      color: #20493a;
     }
     .product-card .price {
-      color: #e97100;
+      color: #ea7d00;
       font-weight: bold;
-      font-size: 1.09rem;
+      font-size: 1.14rem;
       margin-bottom: .8rem;
     }
     .product-card input[type=number] {
-      width: 52px;
+      width: 54px;
       font-size: 1rem;
       border-radius: 7px;
       border: 1px solid #bbb;
       padding: 3px 8px;
-      margin-top:.2rem;
+      margin-top:.1rem;
     }
     .cart-box {
       background: #f3f6f5;
       border-radius: 1.3rem;
-      margin: 2rem 0 1.4rem;
-      padding: 1.1rem 1.3rem .7rem;
+      margin: 2.3rem 0 1.7rem;
+      padding: 1.4rem 1.7rem .8rem;
       box-shadow: 0 0 12px 0 #0001;
     }
     .cart-summary {
-      font-size: 1.05rem;
-      color: #222;
-      margin-bottom: .7rem;
-      line-height:1.9;
+      font-size: 1.09rem;
+      color: #2a2a2a;
+      margin-bottom: .9rem;
+      line-height:2;
       word-break:break-word;
     }
     .btn-main {
-      background: linear-gradient(90deg, #32bfa4, #22744e);
+      background: linear-gradient(90deg, #2fc7b2, #256d4c);
       color: #fff;
-      font-size: 1.07rem;
+      font-size: 1.12rem;
       font-weight: 600;
       border: none;
       border-radius: 1.2rem;
-      padding: .7rem 2.1rem;
-      margin: 1.3rem auto .2rem;
+      padding: .9rem 2.2rem;
+      margin: 1.3rem auto .3rem;
       display: block;
       cursor: pointer;
       box-shadow: 0 2px 8px #28ad7366;
@@ -113,11 +110,11 @@
     }
     .btn-main:active { filter: brightness(.95);}
     #paymentSection {
-      padding: 1.2rem 0 .5rem 0;
+      padding: 1.8rem 0 .5rem 0;
     }
     #qrcode {
       display: block;
-      margin: 1rem auto .5rem;
+      margin: 1.5rem auto 1rem;
       border-radius: 1rem;
       box-shadow: 0 2px 6px #0002;
       max-width: 140px;
@@ -126,36 +123,31 @@
       text-align: center;
       color: #176842;
       font-weight: bold;
-      margin: .6rem 0 1.1rem;
-      font-size: 1.13rem;
-      background: #ebf8ef;
-      border-radius: 0.9rem;
-      padding: .7rem 0 .5rem 0;
+      margin: .8rem 0 1.4rem;
+      font-size: 1.18rem;
+      background: #eaf7f1;
+      border-radius: 0.8rem;
+      padding: .9rem 0 .7rem 0;
       border:1px solid #c8ecd6;
     }
-    form label { font-size: .98rem; color: #235c48;}
-    .form-group { margin-bottom: 1.3rem;}
+    form label { font-size: 1rem; color: #2d6b58;}
+    .form-group { margin-bottom: 1.6rem;}
     input, textarea {
-      width: 100%; padding: 9px;
-      border-radius: 7px; border: 1px solid #b1b1b1;
-      font-size: 1rem; margin-top: 3px;
-      background: #f6f6f8;
+      width: 100%; padding: 11px;
+      border-radius: 8px; border: 1px solid #b1b1b1;
+      font-size: 1rem; margin-top: 4px;
+      background: #f5f5f7;
     }
-    textarea { min-height: 60px;}
+    textarea { min-height: 64px;}
     .success {
       background: #d3fae6;
       border-radius: 1.1rem;
       color: #126138;
-      padding: 1.1rem;
-      margin:1.2rem 0 1.6rem;
+      padding: 1.3rem;
+      margin:1.5rem 0 1.7rem;
       text-align: center;
-      font-size:1.1rem;
+      font-size:1.12rem;
       font-weight:500;
-    }
-    @media (max-width: 700px) {
-      .container { margin:1rem .2rem;padding:.7rem .4rem;}
-      .product-list { grid-template-columns: 1fr;}
-      .product-card { min-height:230px;}
     }
   </style>
 </head>
@@ -163,7 +155,7 @@
   <header>
     <h1>GMMTV SHOP PREORDER</h1>
     <p>ลด 30% ทั้งร้าน! (เว้น Collectible Random Card)</p>
-    <p style="font-size:.98rem; color:#789;">Preorder by: <b>thursfeb</b></p>
+    <p style="font-size:.99rem; color:#789;">Preorder by: <b>thursfeb</b></p>
   </header>
   <div class="container">
     <h2>เลือกสินค้า</h2>
@@ -182,7 +174,7 @@
         Kanyarat Nuchanart <br>
         ยอดที่ต้องโอน: <span id="totalPay">0</span> บาท
       </div>
-      <div style="text-align:center;margin-bottom:.8rem;">โอนแล้วกรอกฟอร์มยืนยันด้านล่าง</div>
+      <div style="text-align:center;margin-bottom:.9rem;">โอนแล้วกรอกฟอร์มยืนยันด้านล่าง</div>
       <form id="confirmForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeN9F0XtWjPGB2S5gQkTbXguyj6ZqlL1cTO6gT1TkskzR0t_g/formResponse" method="POST" target="_blank" enctype="multipart/form-data">
         <div class="form-group">
           <label>แนบสลิปโอนเงิน</label>
@@ -224,7 +216,7 @@
       {name: "Ceri Doll Keychain", price: 553, image: "ceri_doll_keychain.jpg"},
       {name: "Nilkhnake Doll Keychain", price: 553, image: "nilkhnake_doll_keychain.jpg"},
       {name: "Collectible Card Set (AlmondProgress/Viewmim/Junemewnich)", price: 245, image: "collectible_card_set.jpg"},
-      {name: "Customizable Acrylic Keychain", price: 245, image: "acrylic_keychain.jpg"},
+      {name: "Customizable Acrylic Keychain", price: 245, image: "acrylic_keychai.jpg"},
       {name: "Fandom Phone Grippy (Box A/B)", price: 203, image: "phone_grippy.jpg"},
       {name: "Magsafe Wallet Stand", price: 343, image: "magsafe_wallet.jpg"},
       {name: "Sticker Set", price: 154, image: "sticker_set.jpg"},
@@ -243,7 +235,7 @@
       products.forEach((p, i) => {
         html += `
           <div class="product-card">
-            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/90x90?text=No+Image';">
+            <img src="images/${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/110x110?text=No+Image';">
             <h3>${p.name}</h3>
             <div class="price">${p.price} ฿</div>
             <input type="number" min="0" value="0" onchange="updateCart(${i}, this.value)">
