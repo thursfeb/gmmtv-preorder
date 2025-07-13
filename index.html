@@ -34,6 +34,9 @@
     .form-section { margin-top: 18px; background: #e3eafd; border-radius: 15px; padding: 14px;}
     .form-link-btn { background: #e12d2d; color: #fff; font-weight: bold; border: none; border-radius: 9px; font-size: 1.1rem; padding: 10px 22px; margin: 16px 0 20px 0; cursor: pointer;}
     textarea {width:95%;margin-top:10px;height:80px;background:#fff7ee;border-radius:9px;padding:8px;font-size:1rem;}
+    .shipping-select {margin:16px 0 20px 0; padding:16px 18px; border-radius:12px; background:#f2f7ff; text-align:center;}
+    .shipping-radio {margin:0 10px;}
+    .shipping-dropdown {margin-top:10px;}
     @media (max-width: 1100px){
       .products { grid-template-columns: repeat(2,1fr);}
     }
@@ -52,6 +55,26 @@
 
   <!-- สินค้า -->
   <div class="products" id="products"></div>
+
+  <!-- เลือกการจัดส่ง -->
+  <div class="shipping-select" id="shippingSelect" style="display:none;">
+    <div style="font-size:1.1rem; margin-bottom:8px;"><b>เลือกรูปแบบรับสินค้า</b></div>
+    <label class="shipping-radio">
+      <input type="radio" name="shipping" value="nadrub" onchange="setShipping()"> นัดรับ
+    </label>
+    <label class="shipping-radio">
+      <input type="radio" name="shipping" value="post" onchange="setShipping()"> ไปรษณีย์ (+40฿)
+    </label>
+    <div id="nadrubSelect" class="shipping-dropdown" style="display:none;">
+      <select id="nadrubDropdown" onchange="setShippingDropdown()" style="padding:8px 12px; border-radius:7px; border:1.5px solid #d9d9d9;">
+        <option value="">เลือกวัน/สถานที่นัดรับ</option>
+        <option value="27/07 งานหนังสือ">27/07 ที่งานหนังสือ</option>
+        <option value="FANCON JU MARK 11/08">FANCON JU MARK 11/08</option>
+        <option value="FANCON JUMARK 12/08">FANCON JUMARK 12/08</option>
+      </select>
+    </div>
+    <div style="color:#aaa;font-size:.98rem;margin-top:6px;">*ต้องเลือกวิธีรับสินค้า/จัดส่งก่อนชำระเงิน</div>
+  </div>
 
   <!-- ตะกร้า -->
   <div class="cart-section" id="cartSection" style="display:none;">
@@ -106,41 +129,27 @@ function sale(p) { return Math.round(p * 0.7); }
 
 // เรียงตามโปสเตอร์
 const PRODUCTS = [
-  // 1. Sticker Set
   {id: "sticker_set", title: "Sticker Set", price: sale(220), image: "images/sticker_set.jpg", select: mascotsGMMTV},
-  // 2. Hair Band
   {id: "hair_band", title: "Hair Band", price: sale(490), image: "images/hair_band.jpg", select: mascotsGMMTV},
-  // 3. Huggy Bag
   {id: "huggy_bag", title: "Huggy Bag", price: sale(590), image: "images/huggy_bag.jpg", select: mascotsGMMTV},
-  // 4. Sticky Fabric
   {id: "sticky_fabric", title: "Sticky Fabric", price: sale(390), image: "images/sticky_fabric.jpg", select: mascotsGMMTV},
-  // 5. Clear Pouch
   {id: "clear_pouch", title: "Clear Pouch", price: sale(350), image: "images/clear_pouch.jpg", select: mascotsGMMTV},
-  // 6. Fandom Character Charm Illusion Tote Bag
   {id: "charm_illusion_tote", title: "Fandom Character Charm Illusion Tote Bag", price: sale(890), image: "images/charm_illusion_tote.jpg", select: mascotsGMMTV},
-  // 7. Fandom Character Patchy Illusion Tote Bag
   {id: "patchy_illusion_tote", title: "Fandom Character Patchy Illusion Tote Bag", price: sale(890), image: "images/patchy_illusion_tote.jpg", select: mascotsGMMTV},
-  // 8. Fandom Phone Grippy (Random)
   {id: "phone_grippy", title: "Fandom Phone Grippy (Random)", price: sale(290), image: "images/phone_grippy.jpg", select: boxOptions},
-  // 9. Customizable Acrylic Keychain *** ชื่อไฟล์เปลี่ยนเป็น acrylic_keychai.jpg ***
   {id: "acrylic_keychain", title: "Customizable Acrylic Keychain", price: sale(350), image: "images/acrylic_keychai.jpg", select: coupleNames},
-  // 10. Collectible Card Album
   {id: "collectible_card_album", title: "Collectible Card Album", price: sale(300), image: "images/card_album.jpg", select: coupleNames},
-  // 11. That Summer (นิยาย)
   {id: "that_summer", title: "That Summer (นิยาย)", price: sale(450), image: "images/that_summer.jpg"},
-  // 12. Burnout Syndrome (นิยาย)
   {id: "burnout", title: "Burnout Syndrome (นิยาย)", price: sale(450), image: "images/burnout.jpg"},
-  // 13. Last Twilight (นิยาย)
   {id: "last_twilight", title: "Last Twilight (นิยาย)", price: sale(450), image: "images/last_twilight.jpg"},
-  // 14. Thamepo (Heart That Skips a Beat Novel)
   {id: "thamepo", title: "Thamepo (Heart That Skips a Beat Novel)", price: sale(490), image: "images/thamepo.jpg"},
-  // 15. Ceri Doll Keychain
   {id: "ceri_doll_keychain", title: "Ceri Doll Keychain", price: sale(790), image: "images/ceri_doll_keychain.jpg"},
-  // 16. Nilkhnake Doll Keychain
   {id: "nilkhnake_doll_keychain", title: "Nilkhnake Doll Keychain", price: sale(790), image: "images/nilkhnake_doll_keychain.jpg"},
 ];
 
 let cart = [];
+let shippingType = "";
+let nadrubDate = "";
 function renderProducts(){
   const container = document.getElementById('products');
   container.innerHTML = '';
@@ -188,9 +197,11 @@ function renderCart(){
   const cartSection = document.getElementById("cartSection");
   const paySection = document.getElementById("paySection");
   const formSection = document.getElementById("formSection");
+  const shippingSelect = document.getElementById("shippingSelect");
   cartSection.style.display = cart.length ? "" : "none";
   paySection.style.display = cart.length ? "" : "none";
   formSection.style.display = cart.length ? "" : "none";
+  shippingSelect.style.display = cart.length ? "" : "none";
   if(!cart.length) return;
   cartList.innerHTML = '';
   let sum = 0;
@@ -205,11 +216,25 @@ function renderCart(){
       </div>
     `;
   });
-  document.getElementById("cartSum").innerHTML = `รวมทั้งหมด: ${sum} บาท`;
-  document.getElementById("payTotal").innerHTML = `ยอดที่ต้องโอน: ${sum} บาท`;
+
+  // Shipping option
+  let shipText = '';
+  let shippingFee = 0;
+  if(shippingType === "post"){
+    shipText = "วิธีรับสินค้า: ไปรษณีย์ (+40฿)";
+    shippingFee = 40;
+  } else if(shippingType === "nadrub" && nadrubDate){
+    shipText = `วิธีรับสินค้า: นัดรับ (${nadrubDate})`;
+  } else {
+    shipText = "กรุณาเลือกวิธีรับสินค้า/จัดส่ง";
+  }
+  document.getElementById("cartSum").innerHTML = `รวมทั้งหมด: ${sum + shippingFee} บาท<br><span style="font-size:1rem;color:#178046">${shipText}</span>`;
+  document.getElementById("payTotal").innerHTML = `ยอดที่ต้องโอน: ${sum + shippingFee} บาท`;
+
+  // Order summary
   document.getElementById("orderSummaryBox").value = cart.map(item=>{
     return `${item.name}${item.option?` (${item.option})`:""} x ${item.qty} = ${item.price*item.qty} บาท`;
-  }).join('\n') + `\nรวมทั้งหมด: ${sum} บาท`;
+  }).join('\n') + `\n${shipText}\nรวมทั้งหมด: ${sum + shippingFee} บาท`;
 }
 
 function updateQty(idx, val){
@@ -229,6 +254,31 @@ function copyOrderSummary(){
 }
 function copyText(text){
   navigator.clipboard.writeText(text);
+}
+
+// Shipping logic
+function setShipping(){
+  const radioPost = document.querySelector("input[name='shipping'][value='post']");
+  const radioNadrub = document.querySelector("input[name='shipping'][value='nadrub']");
+  let nadrubDiv = document.getElementById('nadrubSelect');
+  nadrubDate = "";
+  if(radioPost.checked){
+    shippingType = "post";
+    nadrubDiv.style.display = "none";
+  }
+  else if(radioNadrub.checked){
+    shippingType = "nadrub";
+    nadrubDiv.style.display = "";
+  }
+  else{
+    shippingType = "";
+    nadrubDiv.style.display = "none";
+  }
+  renderCart();
+}
+function setShippingDropdown(){
+  nadrubDate = document.getElementById("nadrubDropdown").value;
+  renderCart();
 }
 </script>
 </body>
